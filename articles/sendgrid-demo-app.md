@@ -185,7 +185,10 @@ https://github.com/masa-tokyo/sendgrid_demo_app
 お読みいただきありがとうございました。  
 最後にちょっとした宣伝なのですが、実際の業務でSendGridを用いた事例を勉強会で紹介します。具体的なイメージが湧いて実装の参考になれば幸いです。  
 お時間合えばぜひご参加ください↓   
-https://docodoor.connpass.com/event/263871/
+https://docodoor.connpass.com/event/263871/  
+
+※ イベント終了後追記   
+上記リンク先の概要欄のYouTubeライブのアーカイブが残っているのでぜひご覧ください！
 
 # 参考
 https://tokku-engineer.tech/create-pj-flutterfirebase-ios-android-initial/
