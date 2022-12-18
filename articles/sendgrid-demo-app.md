@@ -188,7 +188,7 @@ https://github.com/masa-tokyo/sendgrid_demo_app
 https://docodoor.connpass.com/event/263871/  
 
 ※ イベント終了後追記   
-上記リンク先の概要欄のYouTubeライブのアーカイブが残っているのでぜひご覧ください！
+上記リンク先の概要欄にYouTubeライブのアーカイブが残っているのでぜひご覧ください！
 
 # 参考
 https://tokku-engineer.tech/create-pj-flutterfirebase-ios-android-initial/
