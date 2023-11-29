@@ -20,7 +20,7 @@ https://github.com/masa-tokyo/sendgrid_demo_app
 ![](/images/sendgrid-demo-app/demo_app.png =250x)
 *メールアドレスを入力するテキストフォーム*
 入力して送信ボタンを押すと、以下のようなメールが送信されます。
-![](/images/sendgrid-demo-app/email_page.png)
+![](/images/articles/sendgrid-demo-app/email_page.png)
 
 
 # 実装方法
@@ -88,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 ## ③Firebaseプロジェクト作成
 
-![](/images/sendgrid-demo-app/add_new_project.png)
+![](/images/articles/sendgrid-demo-app/add_new_project.png)
 Firebaseコンソールから以下のことを行いましょう。
 
 - 新規プロジェクトの作成
@@ -122,9 +122,9 @@ void main() async {
 
 
 Firebaseコンソールより「Trigger Email」という拡張機能を追加します。
-![](/images/sendgrid-demo-app/add_extension.png)
+![](/images/articles/sendgrid-demo-app/add_extension.png)
 
-![](/images/sendgrid-demo-app/config_extension.png)
+![](/images/articles/sendgrid-demo-app/config_extension.png)
 
 | 項目                         | 説明                                                                                                                                                                                                                                                                               |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -139,7 +139,7 @@ Firebaseコンソールより「Trigger Email」という拡張機能を追加�
 今回はSendGridを用いるため、SendGridのユーザーページから作成します。
 
 ユーザーページ左のメニュー欄から「Email API > Integration Guide > SMTP Relay」を選択して作成してください。  
-![](/images/sendgrid-demo-app/sendgrid_console.png)
+![](/images/articles/sendgrid-demo-app/sendgrid_console.png)
 
 ここに表示されている情報を`smtps://{Username}@{Server}:{Port}`という形式で記載します。
 
