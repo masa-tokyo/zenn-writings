@@ -92,6 +92,11 @@ analysis_options.yaml
 # https://pub.dev/packages/pedantic_mono
 include: package:pedantic_mono/analysis_options.yaml
 
+# 今後ここに独自のルールを追加していくため、このリポジトリ内は全てこのルールで統一したい
+linter:
+  rules:
+    avoid_classes_with_only_static_members: false
+
 ```
 
 
@@ -119,3 +124,47 @@ fvm flutter create -t package <パッケージ名>
 fvm dart create bootstrap_package
 ```
 
+melos.yamlに`scripts`ディレクトリを追加しておきます。
+```yaml
+# 対象を指定
+packages:
+  - packages/**
+  - examples/**
+  - scripts/**
+```
+
+pubspec.yaml内に以下のようにパスを設定することでこのアプリのコマンド実行を端的に行えるようになります。
+```yaml
+dev_dependencies:
+  bootstrap_package:
+    path: scripts/bootstrap_package
+```
+
+// todo長くなりすぎるようだったらここまでは書かなくてもいいかも
+pubspec.yamlに`pedantic_mono`を追加し、 先ほど作成したルートディレクトリの`analysis_options.yaml`へのシンボリックリンクを作成します。
+
+```yaml
+```bash
+rm analysis_options.yaml && ln -s ../../analysis_options.yaml analysis_options.yaml
+```
+自身のプロジェクト内の`analysis_options.yaml`ファイルを削除するだけでも基本的にはルートのものを参照するようにはなるものの時々上手くいかないことがあるようなので、シンボリックリンクで参照するようにしておきます。
+
+## ②処理の実行
+Dartアプリではlibとは別にbinディレクトリがあり、main関数はこちらに置かれるのですが、今回は以下のようにして主要な処理をlibフォルダ内の`ruCommand`関数で行うようにします。
+
+```dart
+import 'package:bootstrap_package/run_command.dart';
+
+void main(List<String> args) => runCommand(args);
+```
+
+// todo runCommand内でそれぞれの処理の概要を説明
+// todo 各処理を説明（これをどこまでやるかを要検討）
+
+-----
+
+// todo テンプレートからサンプルを作成
+
+// todo exampleアプリを作成してローカルで参照
+
+// todo 別リポジトリから参照
