@@ -12,14 +12,14 @@ published: false
 # プロジェクト作成
 
 まずはいつも通り、
-```
+```bash
 flutter create <プロジェクト名>
 ```
 でプロジェクトを作成します。  
 今回のプロジェクトはflutter関連の色んなものを詰め込む用なので、`flutter_toolkit`としました。
 
 このプロジェクトでは[fvm](https://fvm.app/)でバージョン管理を行うので、以下コマンドでstableバージョンを用いるようにします。
-```
+```bash
 fvm use stable
 ``` 
 
@@ -28,12 +28,12 @@ melosについての詳細はこちらの記事が参考になります。
 https://zenn.dev/altiveinc/articles/melos-for-multiple-packages-dart-projects
 
 melos導入が初めての場合は以下でインストールし、
-```
+```bash
 dart pub global activate melos
 ```
 
 pubspec.yamlにも追加します。
-```
+```bash
 fvm flutter pub add melos
 ```
 
@@ -75,4 +75,47 @@ command:
 
 ```
 // todo テストに関しても記載するならテストコマンドも入れておく
+
+
+また、このプロジェクト内では統一して`pedantic_mono`をlintとして使いため、`flutter_lints`から置き換えておきます。  
+
+pubspec.yaml
+```yaml
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  pedantic_mono: any
+```
+
+analysis_options.yaml
+```yaml
+# https://pub.dev/packages/pedantic_mono
+include: package:pedantic_mono/analysis_options.yaml
+
+```
+
+
+
+```yaml
+
+# パッケージテンプレートの作成
+
+ここから本題のテンプレートの作成に入ります。  
+
+一般にパッケージを作成する際には、
+```bash
+fvm flutter create -t package <パッケージ名>
+```
+を実行しますが、作成後にいくつか毎度修正したい箇所が出てきます。　　
+そういった箇所を自動で修正するために、テンプレートを作成していきます。　　
+
+// todo 補足：vs. mason
+
+## ①テンプレート作成用のdartアプリを作成
+ターミナル上で起動するdartのコンソールアプリを作成します。  
+今回は`scripts`というディレクトリ配下に`bootstrap_package`という名前で作成します。
+
+```bash
+fvm dart create bootstrap_package
+```
 
