@@ -163,8 +163,22 @@ void main(List<String> args) => runCommand(args);
 
 -----
 
-// todo テンプレートからサンプルを作成
+# 使い方
+作成したパッケージはリポジトリ内とリポジトリ外から参照することが出来ます。
 
-// todo exampleアプリを作成してローカルで参照
+## リポジトリ内からの参照
+pubspec.yamlに追加して`melos bs`を実行します。
+
+```yaml
+dependencies:
+  {パッケージ名}:
+```
+すると、`pubspec_overrides.yaml`というファイルが自動生成されます。  
+具体例はこちらのexampleアプリをご覧ください。  
+https://github.com/masa-tokyo/flutter_toolkit/tree/main/examples/mobile
+
+// todo バージョン管理はタグをつけても出来ないのか確認 after tagging
+
+## リポジトリ外からの参照
 
 // todo 別リポジトリから参照
