@@ -247,6 +247,8 @@ void runCommand(List<String> args) {
 全て説明するととても長くなってしまうため要所要所解説していきます。もし不明点等ありましたら遠慮なくコメントいただけるとありがたいです🙏
 
 ### 引数の設定
+こちらで[argsパッケージ](https://pub.dev/packages/args)を用いてコマンド実行時の引数を設定しています。
+
 ```dart: lib/run_command.dart
     // 引数を定義
     final parser = ArgParser()
@@ -268,7 +270,6 @@ void runCommand(List<String> args) {
       return;
     }
 ```
-こちらで[argsパッケージ](https://pub.dev/packages/args)を用いてコマンド実行時の引数を設定しています。
 
 ```shell
 fvm dart run bootstrap_package --help
@@ -304,7 +305,11 @@ Example:
 }
 
 ```
-// todo 補足 about exitCode
+:::message
+exitCodeについて  
+[こちらのドキュメント](https://api.flutter.dev/flutter/dart-io/exitCode.html)にあるように、アプリ起動中にはグローバルに保持される変数で、正常状態以外で終了する際にはデフォルト値である0からそれ以外に設定すると良いようです。
+ここでは[flutterfire_cli](https://github.com/invertase/flutterfire_cli/blob/9e7b659102146f97cee396a1365ecc5c8b848197/packages/flutterfire_cli/bin/flutterfire.dart#L71)の例に倣って1に設定しています。
+:::
 
 また、
 ```shell
