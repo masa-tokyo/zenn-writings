@@ -149,11 +149,173 @@ Dartアプリではlibとは別にbinディレクトリがあり、main関数は
 ```dart: bin/bootstrap_package.dart
 import 'package:bootstrap_package/run_command.dart';
 
+/// 新規パッケージ作成用の関数
+///
+/// FDSプロジェクトのルートディレクトリから以下のコマンドにより実行する。
+/// `fvm dart run bootstrap_package <パッケージ名>`
+/// 実際の処理内容は[runCommand]に記述する。
 void main(List<String> args) => runCommand(args);
 ```
 
-// todo runCommand内でそれぞれの処理の概要を説明
+### runCommand
+
+ちょっと長くなってしまいますが、runCommand関数は以下のようになっています。
+```dart: lib/run_command.dart
+import 'dart:io';
+
+import 'package:args/args.dart';
+import 'package:bootstrap_package/overwrite_licence_file.dart';
+import 'package:bootstrap_package/show_usage.dart';
+import 'package:path/path.dart' as path;
+
+import 'create_working_file.dart';
+import 'overwrite_pubspec_yaml_file.dart';
+import 'overwrite_test_file.dart';
+
+/// コマンド実行用関数
+void runCommand(List<String> args) {
+  try {
+    // 引数を定義
+    final parser = ArgParser()
+      ..addOption(
+        'description',
+        abbr: 'd',
+      )
+      ..addFlag(
+        'help',
+        abbr: 'h',
+        negatable: false,
+      );
+    final parsedArgs = parser.parse(args);
+
+    // helpオプションが指定された場合、使い方を表示して処理を終了
+    final shouldHelp = parsedArgs['help'] as bool;
+    if (shouldHelp) {
+      showUsage();
+      return;
+    }
+
+    // パッケージ名が入力されていない場合、エラー文を表示して処理を終了
+    final name = parsedArgs.rest.firstOrNull;
+    if (name == null) {
+      showUsage(errorMessage: 'パッケージ名を指定してください。');
+      return;
+    }
+
+    // packagesディレクトリへ移動
+    Directory.current = Directory('packages');
+
+    // パッケージ用のプロジェクトを作成
+    Process.runSync(
+      'fvm',
+      ['flutter', 'create', '-t', 'package', name],
+    );
+
+    // 作成されたパッケージへ移動
+    Directory.current = Directory(name);
+
+    // 作業用ファイルを作成
+    createWorkingFile(packageName: name);
+
+    // analysis_options.yamlを削除し、プロジェクトルートのものをsymbolic linkで追加
+    final analysisOptionsFile = File('analysis_options.yaml')..deleteSync();
+    Link(analysisOptionsFile.path)
+        .createSync(path.join('../..', analysisOptionsFile.path));
+
+    // testファイルを上書き
+    overwriteTestFile(packageName: name);
+
+    // パッケージ説明が引数として指定されていない場合、パッケージ名から作成
+    var description = parsedArgs['description'] as String?;
+    description ??= '$name用Flutterパッケージ';
+
+    // pubspec.yamlファイルを上書き
+    overwritePubspecYamlFile(packageName: name, description: description);
+
+    // ライセンスファイルを上書き
+    overwriteLicenseFile();
+
+    // READMEファイルをパッケージ名のみに上書き
+    final packageTitle = '# $name';
+    File('README.md').writeAsStringSync(packageTitle);
+  } on FormatException catch (_) {
+    // '-d'のようなoptionコマンドに続く引数が入力されていない場合
+    showUsage(errorMessage: 'オプションコマンドの使い方が間違っています。');
+  }
+}
+```
+全て説明するととても長くなってしまうため要所要所解説していきます。もし不明点等ありましたら遠慮なくコメントいただけるとありがたいです🙏
+
+### 引数の設定
+```dart: lib/run_command.dart
+    // 引数を定義
+    final parser = ArgParser()
+      ..addOption(
+        'description',
+        abbr: 'd',
+      )
+      ..addFlag(
+        'help',
+        abbr: 'h',
+        negatable: false,
+      );
+    final parsedArgs = parser.parse(args);
+
+    // helpオプションが指定された場合、使い方を表示して処理を終了
+    final shouldHelp = parsedArgs['help'] as bool;
+    if (shouldHelp) {
+      showUsage();
+      return;
+    }
+```
+こちらで[argsパッケージ](https://pub.dev/packages/args)を用いてコマンド実行時の引数を設定しています。
+
+```shell
+fvm dart run bootstrap_package --help
+```
+の実行時には、`showUsage`により使い方を表示するようにしています。
+```dart: lib/show_usage.dart
+import 'dart:io';
+
+/// 使い方をターミナル上に表示するための関数
+///
+/// helpオプションが指定された時や誤った使い方がされた時に用いる。
+/// 誤った使い方がされた場合、[exitCode]を1にして[errorMessage]を表示する。
+void showUsage({String? errorMessage}) {
+  if (errorMessage != null) {
+    exitCode = 1;
+    // ターミナル上にエラーを出力する関数
+    stderr.writeln('[ERROR] $errorMessage');
+  }
+
+  const usage = '''
+    
+Usage: fvm dart run bootstrap_package <パッケージ名> [options]
+
+Options:
+-d, --description <パッケージ説明>     パッケージの説明を指定
+-h, --help　　　　　　　               使い方を表示
+
+Example:
+  fvm dart run bootstrap_package login_form -d "ログインフォーム用Flutterパッケージ"
+    ''';
+  // ターミナル上に出力
+  stdout.writeln(usage);
+}
+
+```
+// todo 補足 about exitCode
+
+また、
+```shell
+fvm dart run bootstrap_package <パッケージ名> -d <パッケージ説明>
+```
+のように実行すると、`-d`オプションで指定したパッケージ説明が`pubspec.yaml`に記載されるようにこの後紹介する`overwritePubspecYamlFile`にて処理しています。
+
+// todo 補足 about dialog
+
 // todo 各処理を説明（これをどこまでやるかを要検討）
+
 
 -----
 
