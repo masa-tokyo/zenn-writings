@@ -199,9 +199,9 @@ dependencies:
 https://github.com/masa-tokyo/flutter_toolkit_example
 
 
-リリースしたい時点でのコミット上でタグをつけてpushします。
+外部リポジトリから参照するタグの作成には、リリースしたい時点のコミット上で以下のコマンドを実行します。
 ```bash
-git tag -a {パッケージ名}/v1.0.0
+git tag -a {パッケージ名}/v1.0.0 -m 'release {パッケージ名}/v1.0.0'
 git push origin {パッケージ名}/v1.0.0
 ```
 
