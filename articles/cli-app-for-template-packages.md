@@ -12,14 +12,14 @@ published: false
 # プロジェクト作成
 
 まずはいつも通り、
-```bash
+```shell
 flutter create <プロジェクト名>
 ```
 でプロジェクトを作成します。  
 今回のプロジェクトはflutter関連の色んなものを詰め込む用なので、`flutter_toolkit`としました。
 
 このプロジェクトでは[fvm](https://fvm.app/)でバージョン管理を行うので、以下コマンドでstableバージョンを用いるようにします。
-```bash
+```shell
 fvm use stable
 ``` 
 
@@ -28,12 +28,12 @@ melosについての詳細はこちらの記事が参考になります。
 https://zenn.dev/altiveinc/articles/melos-for-multiple-packages-dart-projects
 
 melos導入が初めての場合は以下でインストールし、
-```bash
+```shell
 dart pub global activate melos
 ```
 
 pubspec.yamlにも追加します。
-```bash
+```shell
 fvm flutter pub add melos
 ```
 
@@ -55,7 +55,7 @@ fvm flutter pub add melos
 
 `melos.yaml`には以下を記述します。
 
-```yaml
+```yaml: melos.yaml
 # プロジェクト名
 name: flutter_toolkit
 
@@ -79,16 +79,14 @@ command:
 
 また、このプロジェクト内では統一して`pedantic_mono`をlintとして使いため、`flutter_lints`から置き換えておきます。  
 
-pubspec.yaml
-```yaml
+```yaml: pubspec.yaml
 dev_dependencies:
   flutter_test:
     sdk: flutter
   pedantic_mono: any
 ```
 
-analysis_options.yaml
-```yaml
+```yaml: analysis_options.yaml
 # https://pub.dev/packages/pedantic_mono
 include: package:pedantic_mono/analysis_options.yaml
 
@@ -100,15 +98,12 @@ linter:
 ```
 
 
-
-```yaml
-
 # パッケージテンプレートの作成
 
 ここから本題のテンプレートの作成に入ります。  
 
 一般にパッケージを作成する際には、
-```bash
+```shell
 fvm flutter create -t package <パッケージ名>
 ```
 を実行しますが、作成後にいくつか毎度修正したい箇所が出てきます。　　
@@ -120,12 +115,12 @@ fvm flutter create -t package <パッケージ名>
 ターミナル上で起動するdartのコンソールアプリを作成します。  
 今回は`scripts`というディレクトリ配下に`bootstrap_package`という名前で作成します。
 
-```bash
+```shell
 fvm dart create bootstrap_package
 ```
 
 melos.yamlに`scripts`ディレクトリを追加しておきます。
-```yaml
+```yaml: melos.yaml
 # 対象を指定
 packages:
   - packages/**
@@ -134,7 +129,7 @@ packages:
 ```
 
 pubspec.yaml内に以下のようにパスを設定することでこのアプリのコマンド実行を端的に行えるようになります。
-```yaml
+```yaml: pubspec.yaml
 dev_dependencies:
   bootstrap_package:
     path: scripts/bootstrap_package
@@ -143,8 +138,7 @@ dev_dependencies:
 // todo長くなりすぎるようだったらここまでは書かなくてもいいかも
 pubspec.yamlに`pedantic_mono`を追加し、 先ほど作成したルートディレクトリの`analysis_options.yaml`へのシンボリックリンクを作成します。
 
-```yaml
-```bash
+```shell
 rm analysis_options.yaml && ln -s ../../analysis_options.yaml analysis_options.yaml
 ```
 自身のプロジェクト内の`analysis_options.yaml`ファイルを削除するだけでも基本的にはルートのものを参照するようにはなるものの時々上手くいかないことがあるようなので、シンボリックリンクで参照するようにしておきます。
@@ -152,7 +146,7 @@ rm analysis_options.yaml && ln -s ../../analysis_options.yaml analysis_options.y
 ## ②処理の実行
 Dartアプリではlibとは別にbinディレクトリがあり、main関数はこちらに置かれるのですが、今回は以下のようにして主要な処理をlibフォルダ内の`ruCommand`関数で行うようにします。
 
-```dart
+```dart: bin/bootstrap_package.dart
 import 'package:bootstrap_package/run_command.dart';
 
 void main(List<String> args) => runCommand(args);
@@ -170,7 +164,7 @@ void main(List<String> args) => runCommand(args);
 // todo examplesディレクトリに関してはこの時点で説明した方が良いか検討。  
 pubspec.yamlに追加して`melos bs`を実行します。
 
-```yaml
+```yaml: pubspec.yaml
 dependencies:
   {パッケージ名}:
 ```
@@ -184,7 +178,7 @@ https://github.com/masa-tokyo/flutter_toolkit/tree/main/examples/mobile
 
 `flutter_toolkit`リポジトリ外からパッケージを参照したい場合は、以下のように`pubspec.yaml`に追加します。
 
-```yaml
+```yaml: pubspec.yaml
 dependencies:
   {パッケージ名}:
     git:
@@ -200,7 +194,7 @@ https://github.com/masa-tokyo/flutter_toolkit_example
 
 
 外部リポジトリから参照するタグの作成には、リリースしたい時点のコミット上で以下のコマンドを実行します。
-```bash
+```shell
 git tag -a {パッケージ名}/v1.0.0 -m 'release {パッケージ名}/v1.0.0'
 git push origin {パッケージ名}/v1.0.0
 ```
