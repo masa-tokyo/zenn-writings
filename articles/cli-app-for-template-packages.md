@@ -167,6 +167,7 @@ void main(List<String> args) => runCommand(args);
 作成したパッケージはリポジトリ内とリポジトリ外から参照することが出来ます。
 
 ## リポジトリ内からの参照
+// todo examplesディレクトリに関してはこの時点で説明した方が良いか検討。  
 pubspec.yamlに追加して`melos bs`を実行します。
 
 ```yaml
@@ -177,8 +178,38 @@ dependencies:
 具体例はこちらのexampleアプリをご覧ください。  
 https://github.com/masa-tokyo/flutter_toolkit/tree/main/examples/mobile
 
-// todo バージョン管理はタグをつけても出来ないのか確認 after tagging
+// todo バージョン管理はタグをつけても出来ないのか確認 after tagging 1.1.0
 
 ## リポジトリ外からの参照
 
-// todo 別リポジトリから参照
+`flutter_toolkit`リポジトリ外からパッケージを参照したい場合は、以下のように`pubspec.yaml`に追加します。
+
+```yaml
+dependencies:
+  {パッケージ名}:
+    git:
+      url: git://github.com/masa-tokyo/flutter_toolkit.git
+      path: packages/{パッケージ名}
+      # 特定コミットに対するタグを指定
+      ref: {パッケージ名}/v1.0.0
+```
+外部から参照する場合は、元のパッケージの変更（破壊的変更など想定外の事態が起こりうる）が常時反映されてしまわないようにタグ管理した方が良いかと思います。　　
+
+具体例は、こちらに作った別リポジトリをご覧ください。
+https://github.com/masa-tokyo/flutter_toolkit_example
+
+
+リリースしたい時点でのコミット上でタグをつけてpushします。
+```bash
+git tag -a {パッケージ名}/v1.0.0
+git push origin {パッケージ名}/v1.0.0
+```
+
+// todo showcase the versioning by adding 1.1.0
+
+Gitタグやリリースの詳細についてはこちらの記事が参考になります。
+https://qiita.com/tommy_aka_jps/items/5b39e4b27364c759aa53
+
+ちなみに、[flutterfire](https://github.com/firebase/flutterfire/releases)や[riverpod](https://github.com/rrousselGit/riverpod/releases)などの主要なパッケージを見てみると、あまりリリースドキュメントまでは書いていないようでした。マルチパッケージ構成のリポジトリにおいては、各パッケージ内のCHANGELOGの内容のみでリリース情報は管理する、という方針が良いのかもしれません。　　
+
+
