@@ -315,11 +315,25 @@ exitCodeについて
 ```shell
 fvm dart run bootstrap_package <パッケージ名> -d <パッケージ説明>
 ```
-のように実行すると、`-d`オプションで指定したパッケージ説明が`pubspec.yaml`に記載されるようにこの後紹介する`overwritePubspecYamlFile`にて処理しています。
+のように実行することで、後ほど紹介する`overwritePubspecYamlFile`関数にパッケージ説明を渡すことが出来ます。
+```dart: lib/run_command.dart
+    // パッケージ説明が引数として指定されていない場合、パッケージ名から作成
+    var description = parsedArgs['description'] as String?;
+    description ??= '$name用Flutterパッケージ';
 
-// todo 補足 about dialog
+    overwritePubspecYamlFile(packageName: name, description: description);
+    
+```
+
+
+:::message
+ダイアログ用パッケージ
+余談ですが、さらに必要な情報が増えてきて複数引数を渡したくなってきた場合には[cli_dialog](https://pub.dev/packages/cli_dialog)や[interact](https://pub.dev/packages/interact)のようなパッケージを用いて対話形式のインターフェースにするとよりCLIっぽくなって体験が良さそうです。
+ちょっと試したみた感じ僕の環境だと文字化けしてしまったりしてあまり上手く動かなかったのですが、もし使っていらっしゃる方がいらしたらぜひシェアお願いします🙏
+:::
 
 // todo 各処理を説明（これをどこまでやるかを要検討）
+
 
 
 -----
