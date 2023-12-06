@@ -6,6 +6,7 @@ topics: ["Flutter", "Dart", "GitHub"]
 published: false
 ---
 この記事は、[Flutter 大学アドベントカレンダー 2023](https://qiita.com/advent-calendar/2023/flutteruniv) 6日目の記事です。
+
 最近仕事先で初めてDart製のCLIツールを作ったのですが、その過程がとても有益で勉強になったため、この機会に記事にまとめておくことにしました。
 
 # 読んでみてほしい人
