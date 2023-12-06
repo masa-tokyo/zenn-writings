@@ -5,6 +5,7 @@ type: "tech"
 topics: ["Flutter", "Dart", "GitHub"]
 published: false
 ---
+最近仕事先で初めてDart製のCLIツールを作ったのですが、その過程がとても有益で勉強になったため、この機会に記事にまとめておくことにしました。
 
 # 読んでみてほしい人
 こんな方に読んでもらえたら嬉しいです🙌  
@@ -13,7 +14,6 @@ published: false
 - 日頃からFlutterパッケージ作成を行っている人
 
 # 今回作るもの
-最近仕事先で初めてDart製のCLIツールを作ったのですが、その過程がとても有益で勉強になったため、この機会に記事にまとめておくことにしました。
 
 ![](/images/articles/cli-app-for-template-packages/cli_app_behavior.gif)
 
