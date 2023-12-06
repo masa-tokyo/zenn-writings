@@ -53,7 +53,6 @@ fvm flutter pub add melos
 .
 ├── README.md
 ├── analysis_options.yaml
-├── examples // サンプルアプリ用ディレクトリ（無くてもok)
 ├── flutter_toolkit.iml
 ├── melos.yaml
 ├── packages // ここにパッケージを追加していく
@@ -71,7 +70,6 @@ name: flutter_toolkit
 # 対象を指定
 packages:
   - packages/**
-  - examples/**
 
 # flutterバージョンはfvmを参照
 sdkPath: '.fvm/flutter_sdk'
@@ -84,8 +82,9 @@ command:
 
 ```
 
+// todo note about バージョン表記
 
-また、このプロジェクト内では統一して`pedantic_mono`をlintとして使いため、`flutter_lints`から置き換えておきます。  
+また、このプロジェクト内では統一して`pedantic_mono`をlintとして使いたいため、`flutter_lints`から置き換えておきます。  
 
 ```yaml: pubspec.yaml
 dev_dependencies:
@@ -133,7 +132,6 @@ melos.yamlに`scripts`ディレクトリを追加しておきます。
 # 対象を指定
 packages:
   - packages/**
-  - examples/**
   - scripts/**
 ```
 
@@ -519,15 +517,22 @@ SOFTWARE.
 作成したパッケージはリポジトリ内とリポジトリ外から参照することが出来ます。
 
 ## リポジトリ内からの参照
-// todo examplesディレクトリに関してはこの時点で説明した方が良いか検討。  
-pubspec.yamlに追加して`melos bs`を実行します。
+pubspec.yamlにパッケージ名を追記し、`melos bs`を実行します。
 
 ```yaml: pubspec.yaml
 dependencies:
   {パッケージ名}:
 ```
-すると、`pubspec_overrides.yaml`というファイルが自動生成されます。  
-具体例はこちらのexampleアプリをご覧ください。  
+すると、参照先を示す`pubspec_overrides.yaml`というファイルが自動生成されます。  
+
+```yaml: pubspec_overrides.yaml
+# melos_managed_dependency_overrides: {パッケージ名}
+dependency_overrides:
+  {パッケージ名}:
+    path: ../../packages/{パッケージ名}
+```
+
+実装例では、`examples`というディレクトリ内にサンプルアプリを用意しており、その中で実際に作成したパッケージを利用しています。
 https://github.com/masa-tokyo/flutter_toolkit/tree/main/examples/mobile
 
 // todo バージョン管理はタグをつけても出来ないのか確認 after tagging 1.1.0
