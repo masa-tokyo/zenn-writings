@@ -118,6 +118,7 @@ fvm flutter create -t package <パッケージ名>
 そういった箇所を自動で修正するために、テンプレートを作成していきます。　　
 
 // todo 補足：vs. mason
+// todo 補足 vs. シェルファイル or Process.runSync?
 
 ## ①テンプレート作成用のdartアプリを作成
 ターミナル上で起動するdartのコンソールアプリを作成します。  
@@ -142,14 +143,6 @@ dev_dependencies:
   bootstrap_package:
     path: scripts/bootstrap_package
 ```
-
-// todo長くなりすぎるようだったらここまでは書かなくてもいいかも
-pubspec.yamlに`pedantic_mono`を追加し、 先ほど作成したルートディレクトリの`analysis_options.yaml`へのシンボリックリンクを作成します。
-
-```shell
-rm analysis_options.yaml && ln -s ../../analysis_options.yaml analysis_options.yaml
-```
-自身のプロジェクト内の`analysis_options.yaml`ファイルを削除するだけでも基本的にはルートのものを参照するようにはなるものの時々上手くいかないことがあるようなので、シンボリックリンクで参照するようにしておきます。
 
 ## ②処理の実行
 Dartアプリではlibとは別にbinディレクトリがあり、main関数はこちらに置かれるのですが、今回は以下のようにして主要な処理をlibフォルダ内の`ruCommand`関数で行うようにします。
@@ -362,12 +355,19 @@ export 'src/$baseFileName';
   File(path.join('lib', baseFileName)).writeAsStringSync(exportStatement);
 }
 ```
+複数パスを組み合わせている箇所では[path](https://pub.dev/packages/path)パッケージを用いています。
 Fileクラスにパスを指定して、`writeAsStringSync`にてファイルを作成 or （既に存在するlib直下ファイルは)上書きします。
 尚、非同期的に扱う`writeAsString`メソッドもありますが、ここではその必要もなく同期的な方が扱いやすいので`writeAsStringSync`を用いています。
-また、複数パスを組み合わせている箇所では[path](https://pub.dev/packages/path)パッケージを用いています。
 
 ### lint設定
-
+```dart:lib/run_command.dart
+    // analysis_options.yamlを削除し、プロジェクトルートのものをsymbolic linkで追加
+    final analysisOptionsFile = File('analysis_options.yaml')..deleteSync();
+    Link(analysisOptionsFile.path)
+        .createSync(path.join('../..', analysisOptionsFile.path));
+```
+先ほど作ったプロジェクト全体の`analysis_options.yaml`を用いるようにしたいので、そちらへのシンボリックを作成します。
+尚、単に自身の`analysis_options.yaml`を削除するだけでも基本的にはトップディレクトリのものを参照してくれますが、時々参照されないバグ的な挙動が発生するようなのでシンボリックリンクを作っておいた方がベターかなと思います。
 
 ### testファイルの上書き
 
