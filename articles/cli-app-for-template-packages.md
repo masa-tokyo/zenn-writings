@@ -7,7 +7,7 @@ published: false
 ---
 
 # 今回作るもの
-最近仕事先で初めてDart製のCLIツールを作ったのですが、この過程がとても有益で勉強になったため、この機会に記事にまとめておくことにしました。
+最近仕事先で初めてDart製のCLIツールを作ったのですが、その過程がとても有益で勉強になったため、この機会に記事にまとめておくことにしました。
 
 ![](/images/articles/cli-app-for-template-packages/cli_app_behavior.gif)
 
@@ -28,14 +28,15 @@ https://www.youtube.com/live/IpcFqABBKvU?si=BoaeJt8J2tD8GazI&t=4241
 
 # プロジェクト作成
 ここからは実際にステップを追って作成していきます。
-
+今回作るサンプルリポジトリを以下に置いておくので、適宜参考にしてください。
+https://github.com/masa-tokyo/flutter_toolkit
 
 まずはいつも通り、
 ```shell
 flutter create <プロジェクト名>
 ```
 でプロジェクトを作成します。  
-今回のプロジェクトはflutter関連の色んなものを詰め込む用なので、`flutter_toolkit`としました。
+今回のプロジェクトは個人開発の際に使えそうなflutter関連の色んな汎用的なものを詰め込む用なので、`flutter_toolkit`としました。
 
 このプロジェクトでは[fvm](https://fvm.app/)でバージョン管理を行うので、以下コマンドでstableバージョンを用いるようにします。
 ```shell
@@ -58,17 +59,14 @@ fvm flutter pub add melos
 
 不要なプラットフォーム関連のディレクトリを消して、以下のような構成にします。
 
-
 ```
 .
 ├── README.md
 ├── analysis_options.yaml
-├── flutter_toolkit.iml
 ├── melos.yaml
 ├── packages // ここにパッケージを追加していく
 ├── pubspec.lock
 └── pubspec.yaml
-
 ```
 
 `melos.yaml`には以下を記述します。
@@ -92,7 +90,21 @@ command:
 
 ```
 
-// todo note about バージョン表記
+:::message
+バージョン表記について
+通常、
+```shell
+fvm flutter create -t package <パッケージ名>
+```
+でパッケージを作成すると、以下のような表記になります。
+```yaml: pubspec.yaml
+environment:
+  sdk: '>=3.2.2 <4.0.0'
+  flutter: ">=1.17.0"
+```
+ただし、今回のプロジェクトでは常にfvmで最新stableを用いるため紛らわしさを避けるため（実際には1.17.0以上が使える訳ではないため）、Flutterバージョンは表記しないこととします。
+また、DartのSDKバージョンについては四半期ごとのstableリリースのタイミングで表記を更新する(patchバージョンまで細かく更新するのが大変なため）、という意味合いで`sdk: ^3.2.0`のようにキャレット記号で書いておくくらいがちょうど良いのかなと思います。
+:::
 
 また、このプロジェクト内では統一して`pedantic_mono`をlintとして使いたいため、`flutter_lints`から置き換えておきます。  
 
