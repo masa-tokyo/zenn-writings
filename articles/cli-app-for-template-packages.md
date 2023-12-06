@@ -370,6 +370,37 @@ Fileクラスにパスを指定して、`writeAsStringSync`にてファイルを
 尚、単に自身の`analysis_options.yaml`を削除するだけでも基本的にはトップディレクトリのものを参照してくれますが、時々参照されないバグ的な挙動が発生するようなのでシンボリックリンクを作っておいた方がベターかなと思います。
 
 ### testファイルの上書き
+```dart: lib/onverwrite_test_file.dart
+import 'dart:io';
+
+import 'package:path/path.dart' as path;
+
+/// テスト用ファイルを上書き作成するための関数
+///
+/// プロジェクト作成段階のテストファイルに含まれているサンプル用のクラスが
+/// その後の処理により削除されているため、テスト内容を空にした状態に修正する。
+void overwriteTestFile({required String packageName}) {
+  final content = '''
+import 'package:flutter_test/flutter_test.dart';
+
+void main() {
+  test('$packageName test', () {});
+}
+''';
+
+  File(path.join('test', '${packageName}_test.dart'))
+      .writeAsStringSync(content);
+}
+```
+テストファイル内には、
+```dart: lib/run_command.dart
+    // パッケージ用のプロジェクトを作成
+    Process.runSync(
+      'fvm',
+      ['flutter', 'create', '-t', 'package', name],
+    );
+```
+の直後にはlib直下のファイルに作られているサンプル用のクラス(`Caliculator`クラス)を用いたテストが書いてあるのですが、`createWorkingFile`によりこのクラスを削除してしまっているため、処理の中身を空にしておきます。
 
 ### pubspec.yamlの上書き
 
