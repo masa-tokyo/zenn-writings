@@ -138,11 +138,15 @@ fvm flutter create -t package <パッケージ名>
 を実行しますが、作成後にいくつか毎度修正したい箇所が出てきます。　　
 そういった箇所を自動で修正するために、テンプレートを作成していきます。　　
 
-// todo 補足：vs. mason
-// todo 補足 vs. シェルファイル or Process.runSync?
+:::message
+masonとの比較
+テンプレート作成、と聞くと「それ[mason](https://pub.dev/packages/mason)じゃダメなの？」と思われる方もいるかもしれません。
+実際、ここで行っている多くのことはmasonでも実現出来るので、masonの扱いに慣れていればそちらのが実装は早いと思います。
+ただ、これから説明する`overwritePubspecYamlFile`関数内で行っているような、コマンド実行時に渡した引数を元にした特定箇所の書き換え、Dartバージョンの動的な取得、単体テスト実行のような複雑なことをしたい場合には、CLIツールを使う必要があるかなと思います。
+:::
 
-## ①テンプレート作成用のdartアプリを作成
-ターミナル上で起動するdartのコンソールアプリを作成します。  
+## テンプレート作成用のDartアプリを作成
+ターミナル上で起動するDartのコンソールアプリを作成します。  
 今回は`scripts`というディレクトリ配下に`bootstrap_package`という名前で作成します。
 
 ```shell
@@ -164,7 +168,7 @@ dev_dependencies:
     path: scripts/bootstrap_package
 ```
 
-## ②処理の実行
+## 処理の実行
 Dartアプリではlibとは別にbinディレクトリがあり、main関数はこちらに置かれるのですが、今回は以下のようにして主要な処理をlibフォルダ内の`ruCommand`関数で行うようにします。
 
 ```dart: bin/bootstrap_package.dart
@@ -172,7 +176,7 @@ import 'package:bootstrap_package/run_command.dart';
 
 /// 新規パッケージ作成用の関数
 ///
-/// FDSプロジェクトのルートディレクトリから以下のコマンドにより実行する。
+/// プロジェクトのルートディレクトリから以下のコマンドにより実行する。
 /// `fvm dart run bootstrap_package <パッケージ名>`
 /// 実際の処理内容は[runCommand]に記述する。
 void main(List<String> args) => runCommand(args);
@@ -265,7 +269,7 @@ void runCommand(List<String> args) {
   }
 }
 ```
-全て説明するととても長くなってしまうため要所要所解説していきます。もし不明点等ありましたら遠慮なくコメントいただけるとありがたいです🙏
+ここから要所要所を解説していきます。もし不明点等ありましたら遠慮なくコメントいただけばと思います🙏
 
 ### 引数の設定
 こちらで[argsパッケージ](https://pub.dev/packages/args)を用いてコマンド実行時の引数を設定しています。
@@ -326,6 +330,9 @@ Example:
 }
 
 ```
+
+// todo screenshot
+
 :::message
 exitCodeについて  
 [こちらのドキュメント](https://api.flutter.dev/flutter/dart-io/exitCode.html)にあるように、アプリ起動中にはグローバルに保持される変数で、正常状態以外で終了する際にはデフォルト値である0からそれ以外に設定すると良いようです。
