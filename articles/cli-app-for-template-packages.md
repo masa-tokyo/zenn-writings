@@ -145,7 +145,7 @@ masonとの比較
 ただ、これから説明する`overwritePubspecYamlFile`関数内で行っているような、コマンド実行時に渡した引数を元にした特定箇所の書き換え、Dartバージョンの動的な取得、単体テスト実行のような複雑なことをしたい場合には、CLIツールを使う必要があるかなと思います。
 :::
 
-## テンプレート作成用のDartアプリを作成
+## テンプレート生成用のDartアプリを作成
 ターミナル上で起動するDartのコンソールアプリを作成します。  
 今回は`scripts`というディレクトリ配下に`bootstrap_package`という名前で作成します。
 
@@ -168,8 +168,8 @@ dev_dependencies:
     path: scripts/bootstrap_package
 ```
 
-## 処理の実行
-Dartアプリではlibとは別にbinディレクトリがあり、main関数はこちらに置かれるのですが、今回は以下のようにして主要な処理をlibフォルダ内の`ruCommand`関数で行うようにします。
+## 処理の実装
+Dartアプリではlibとは別にbinというフォルダがあり、main関数はこちらに置かれるのですが、今回は以下のようにして主要な処理をlibフォルダ内の`ruCommand`関数で行うようにします。
 
 ```dart: bin/bootstrap_package.dart
 import 'package:bootstrap_package/run_command.dart';
@@ -330,8 +330,8 @@ Example:
 }
 
 ```
-
-// todo screenshot
+これにより、いつも見るようなhelpっぽいものを表示出来るようになります🎉
+![](/images/articles/cli-app-for-template-packages/show_usage_in_terminal.png)
 
 :::message
 exitCodeについて  
@@ -353,12 +353,7 @@ fvm dart run bootstrap_package <パッケージ名> -d <パッケージ説明>
     
 ```
 
-// todo check dialog behavior
-:::message
-ダイアログ用パッケージ
 余談ですが、さらに必要な情報が増えてきて複数引数を渡したくなってきた場合には[cli_dialog](https://pub.dev/packages/cli_dialog)や[interact](https://pub.dev/packages/interact)のようなパッケージを用いて対話形式のインターフェースにするとよりCLIっぽくなって体験が良さそうです。
-ちょっと試したみた感じ僕の環境だと文字化けしてしまったりしてあまり上手く動かなかったのですが、もし使っていらっしゃる方がいらしたらぜひシェアお願いします🙏
-:::
 
 ### 作業用ファイルの作成
 [こちらの例](https://github.com/rrousselGit/riverpod/tree/master/packages/flutter_riverpod/lib)のように、libフォルダ直下にはexport文のみを記載したファイルを置き実装自体はsrcフォルダ内で行う、というのが一般的なようなので、その場所を用意します。
