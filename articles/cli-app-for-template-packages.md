@@ -255,8 +255,10 @@ void runCommand(List<String> args) {
     // pubspec.yamlファイルを上書き
     overwritePubspecYamlFile(packageName: name, description: description);
 
-    // ライセンスファイルを上書き
-    overwriteLicenseFile();
+    // LICENSEファイル削除し、プロジェクトルートのものをsymbolic linkで追加
+    final licenseFile = File('LICENSE')..deleteSync();
+    Link(licenseFile.path).createSync(path.join('../..', licenseFile.path));
+
 
     // READMEファイルをパッケージ名のみに上書き
     final packageTitle = '# $name';
@@ -488,26 +490,24 @@ String _getDartCaretVersion() {
 ```
 :::message
 正規表現について
-かなり細かいおまけ的な話になりますが、「`_getDartCaretVersion`内の`versionString!`の部分で!(null check operator)を用いてるけど大丈夫そう？」と気になった方は読んでもらえればと思います。
+かなり細かい話になりますが、「`_getDartCaretVersion`内の`versionString!`の部分で!(null check operator)を用いてるけど大丈夫そう？」と気になった方は読んでもらえればと思います。
 ここではDartバージョンを動的に取得しようとしており、現在の環境(Flutterバージョン3.16.2)ではコマンド実行後に指定している文字列が取得出来るため問題ないものの、将来的なバージョンアップデートによって取得結果が変わることはあり得ることにはあり得るかなと思います(`Dart SDK version:`が`Dart SDK version is`という表記になるみたいなイメージです）。
 なので、上記では「!」で済ませてしまっていますが、[こちら](https://github.com/masa-tokyo/flutter_toolkit/blob/794b5957edc21942046b629c924ceda91e34b1f4/scripts/bootstrap_package/lib/overwrite_pubspec_yaml_file.dart#L67)のようにnullの状態に気づけるようにしておく（&もっと言えば単体テストを毎度走らせてコマンド実行前に気づけるようにしておく）とベターかなと思います。
 :::
 
-// todo シンボリックリンク化
-### ライセンスファイルの上書き
-プライベートなリポジトリであればこのファイル自体削除しておけば良いですが、公にするものであればライセンスも書いておいた方が良さそうです。
-```dart: lib/overwrite_license_file.dart
-import 'dart:io';
+### ライセンスファイルを作成
+```dart: lib/run_command.dart
+    // LICENSEファイル削除し、プロジェクトルートのものをsymbolic linkで追加
+    final licenseFile = File('LICENSE')..deleteSync();
+    Link(licenseFile.path).createSync(path.join('../..', licenseFile.path));
 
-/// ライセンスファイルを上書き作成するための関数
-///
-/// 書き込み時点の年度でMIT形式のライセンスを記載する。
-void overwriteLicenseFile() {
-  final thisYear = DateTime.now().year;
-  final content = '''
+``` 
+プライベートなリポジトリであればこのファイルは削除すれば良いですが、公にするものであればライセンスも書いておいた方が良さそうです。
+プロジェクトのルートに以下のようなライセンスファイルを作成し、それを全てのパッケージで参照するようにしておきます。
+```file: LICENSE
 MIT License
 
-Copyright (c) $thisYear Masaki Sato
+Copyright (c) 2023 Masaki Sato
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -526,12 +526,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-''';
-
-  File('LICENSE').writeAsStringSync(content);
-}
-
 ```
+
 
 -----
 
