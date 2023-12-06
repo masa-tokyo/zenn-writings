@@ -18,8 +18,6 @@ published: false
 詳細ご興味ある方はこちらに過去勉強会のアーカイブがあるのでご覧ください。
 https://www.youtube.com/live/IpcFqABBKvU?si=BoaeJt8J2tD8GazI&t=4241
 
-// todo FlutterGakkai告知しておく？
-
 この現場のモノレポ構成のリポジトリ内では、毎回Flutterパッケージを新規作成後にいくつか決まって行う必要のある処理があるのですが、この処理が段々と増えてきて煩雑になってきたためこの際自動化しよう、となったのがCLIツールを作ることになった経緯でした。
 
 ただ、この話は上記のようなチーム開発に限ったものではなく、個人の開発者にとっても有用なのかなと思います。
@@ -537,7 +535,7 @@ SOFTWARE.
 
 -----
 
-# 使い方
+# 作成したパッケージの使い方
 作成したパッケージはリポジトリ内とリポジトリ外から参照することが出来ます。
 
 ## リポジトリ内からの参照
@@ -559,7 +557,6 @@ dependency_overrides:
 実装例では、`examples`というディレクトリ内にサンプルアプリを用意しており、その中で実際に作成したパッケージを利用しています。
 https://github.com/masa-tokyo/flutter_toolkit/tree/main/examples/mobile
 
-// todo バージョン管理はタグをつけても出来ないのか確認 after tagging 1.1.0
 
 ## リポジトリ外からの参照
 
@@ -576,7 +573,7 @@ dependencies:
 ```
 `ref`の記述は無くても参照可能ですが、元のパッケージの変更（破壊的変更など想定外の事態が起こりうる）が常時反映されてしまわないようにタグ管理した方がベターかなと思います。　　
 
-具体例は、こちらに作った別リポジトリをご覧ください。
+実装例は、こちらに作った別リポジトリをご覧ください。
 https://github.com/masa-tokyo/flutter_toolkit_example
 
 
@@ -586,11 +583,16 @@ git tag -a {パッケージ名}/v1.0.0 -m 'release {パッケージ名}/v1.0.0'
 git push origin {パッケージ名}/v1.0.0
 ```
 
-// todo showcase the versioning by adding 1.1.0
-
 Gitタグやリリースの詳細についてはこちらの記事が参考になります。
 https://qiita.com/tommy_aka_jps/items/5b39e4b27364c759aa53
 
 ちなみに、[flutterfire](https://github.com/firebase/flutterfire/releases)や[riverpod](https://github.com/rrousselGit/riverpod/releases)などの主要なパッケージを見てみると、あまりリリースドキュメントまでは書いていないようでした。マルチパッケージ構成のリポジトリにおいては、各パッケージ内のCHANGELOGの内容のみでリリース情報は管理する、という方針が良いのかもしれません。　　
 
+# 最後に
+ここまでお読みいただきありがとうございました。
+今回ご紹介した話はチームでも個人でも使えるものだと思うので、少しでも参考になりましたら幸いです。
 
+最後に少しだけ告知をさせてください...！
+FlutterGakkaiという勉強会（[途中で貼っていたリンク](https://www.youtube.com/live/IpcFqABBKvU?si=BoaeJt8J2tD8GazI&t=4241)は過去回のものです）を2024年1月末にオンライン/オフライン同時開催します。
+今回もとても素敵な方々に発表いただくため、ぜひ来ていただけると嬉しいです🙌
+https://fluttergakkai.connpass.com/event/304163/
