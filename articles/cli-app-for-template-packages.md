@@ -8,6 +8,15 @@ published: false
 
 # はじめに
 
+# きっかけ
+
+とても勉強になったのでまとめておきたい。
+
+docodoor紹介
+
+個人でも作れるかな、という感じ。
+
+
 
 # プロジェクト作成
 
@@ -74,7 +83,6 @@ command:
       sdk: ^3.2.0
 
 ```
-// todo テストに関しても記載するならテストコマンドも入れておく
 
 
 また、このプロジェクト内では統一して`pedantic_mono`をlintとして使いため、`flutter_lints`から置き換えておきます。  
@@ -325,15 +333,47 @@ fvm dart run bootstrap_package <パッケージ名> -d <パッケージ説明>
     
 ```
 
-
+// todo check dialog behavior
 :::message
 ダイアログ用パッケージ
 余談ですが、さらに必要な情報が増えてきて複数引数を渡したくなってきた場合には[cli_dialog](https://pub.dev/packages/cli_dialog)や[interact](https://pub.dev/packages/interact)のようなパッケージを用いて対話形式のインターフェースにするとよりCLIっぽくなって体験が良さそうです。
 ちょっと試したみた感じ僕の環境だと文字化けしてしまったりしてあまり上手く動かなかったのですが、もし使っていらっしゃる方がいらしたらぜひシェアお願いします🙏
 :::
 
-// todo 各処理を説明（これをどこまでやるかを要検討）
+### 作業用ファイルの作成
+[こちらの例](https://github.com/rrousselGit/riverpod/tree/master/packages/flutter_riverpod/lib)のように、libフォルダ直下にはexport文のみを記載したファイルを置き実装自体はsrcフォルダ内で行う、というのが一般的なようなので、その場所を用意します。
+```dart: lib/create_working_file.dart
+import 'dart:io';
 
+import 'package:path/path.dart' as path;
+
+/// 作業用ファイルを作成するための関数
+///
+/// srcディレクトリへファイルを作成し、lib直下のファイルにそのpathへのexport文を記載する。
+void createWorkingFile({required String packageName}) {
+  // srcディレクトリへファイルを作成
+  final baseFileName = '$packageName.dart';
+  File(path.join('lib/src', baseFileName)).createSync(recursive: true);
+
+  // lib直下のファイルへexport文を記載
+  final exportStatement = '''
+export 'src/$baseFileName';
+''';
+  File(path.join('lib', baseFileName)).writeAsStringSync(exportStatement);
+}
+```
+Fileクラスにパスを指定して、`writeAsStringSync`にてファイルを作成 or （既に存在するlib直下ファイルは)上書きします。
+尚、非同期的に扱う`writeAsString`メソッドもありますが、ここではその必要もなく同期的な方が扱いやすいので`writeAsStringSync`を用いています。
+また、複数パスを組み合わせている箇所では[path](https://pub.dev/packages/path)パッケージを用いています。
+
+### lint設定
+
+
+### testファイルの上書き
+
+### pubspec.yamlの上書き
+
+### ライセンスファイルの上書き
 
 
 -----
