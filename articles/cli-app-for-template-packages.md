@@ -403,6 +403,76 @@ void main() {
 の直後にはlib直下のファイルに作られているサンプル用のクラス(`Caliculator`クラス)を用いたテストが書いてあるのですが、`createWorkingFile`によりこのクラスを削除してしまっているため、処理の中身を空にしておきます。
 
 ### pubspec.yamlの上書き
+コメントにあるようにバージョン表記やフィールドの追加などを行っています。
+```dart: lib/overwrite_pubspec_yaml_file.dart
+import 'dart:io';
+
+import 'package:pub_semver/pub_semver.dart';
+
+/// pubspec.yamlファイルを上書き作成するための関数
+///
+/// プロジェクト作成段階から以下の箇所を修正：
+/// - sdkバージョンはmelos.yaml同様に最新stableをキャレット記号にて記述
+/// - flutterバージョンは削除
+/// - flutter_lintsをpedantic_monoへ置き換え
+/// - 不要なhomepageフィールドの削除
+/// - 不要なコメントの削除
+/// - 意図しない配信を避けるためpublish_toフィールドを追加
+void overwritePubspecYamlFile({
+  required String packageName,
+  required String description,
+}) {
+  final dartVersion = _getDartCaretVersion();
+
+  final content = '''
+name: $packageName
+description: $description
+publish_to: 'none'
+version: 0.0.1
+
+environment:
+  sdk: $dartVersion
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  pedantic_mono: any
+
+flutter:
+''';
+
+  File('pubspec.yaml').writeAsStringSync(content);
+}
+
+/// pubspec.yamlに記載するdart sdkのバージョンを取得する関数
+///
+/// FVMのdart versionを取得し、そのバージョンをキャレット記号にて記述する。
+/// 尚、pubspec.yamlファイル作成後に`melos bs`コマンドを実行しても同様の結果になるが、
+/// コマンドの実行時間削減のためにこのように実装している。
+String _getDartCaretVersion() {
+  final ProcessResult versionResult;
+  versionResult = Process.runSync('fvm', ['dart', '--version']);
+  final versionOutput = versionResult.stdout as String;
+
+  final versionMatch =
+      RegExp(r'Dart SDK version: (\d+\.\d+\.\d+)').firstMatch(versionOutput);
+  final versionString = versionMatch?.group(1);
+  final version = Version.parse(versionString!);
+  // melos.yamlの記述内容と揃えるために、patchバージョンは0としておく
+  return '^${version.major}.${version.minor}.0';
+}
+```
+:::message
+正規表現について
+かなり細かいおまけ的な話になりますが、「`_getDartCaretVersion`内の`versionString!`の部分で!(null check operator)を用いてるけど大丈夫そう？」と気になった方は読んでもらえればと思います。
+ここではDartバージョンを動的に取得しようとしており、現在の環境(Flutterバージョン3.16.2)ではコマンド実行後に指定している文字列が取得出来るため問題ないものの、将来的なバージョンアップデートによって取得結果が変わることはあり得ることにはあり得るかなと思います(`Dart SDK version:`が`Dart SDK version is`という表記になるみたいなイメージです）。
+なので、上記では「!」で済ませてしまっていますが、[こちら](https://github.com/masa-tokyo/flutter_toolkit/blob/794b5957edc21942046b629c924ceda91e34b1f4/scripts/bootstrap_package/lib/overwrite_pubspec_yaml_file.dart#L67)のようにnullの状態に気づけるようにしておく（&もっと言えば単体テストを毎度走らせてコマンド実行前に気づけるようにしておく）とベターかなと思います。
+:::
+
 
 ### ライセンスファイルの上書き
 
