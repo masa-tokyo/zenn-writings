@@ -15,7 +15,7 @@ published: false
 
 # 今回作るもの
 
-![](/images/articles/cli-app-for-template-packages/cli_app_behavior.gif)
+![](/images/articles/cli-app-for-package-template/cli_app_behavior.gif)
 
 コマンドをターミナル上に入力してアプリを起動することで、pubspec.yamlファイルの更新や作業用ファイルの作成など、パッケージ開発を行う上で必要な処理を一括して行えるようになっています。
 
@@ -337,7 +337,7 @@ Example:
 
 ```
 これにより、いつも見るようなhelpっぽいものを表示出来るようになります🎉
-![](/images/articles/cli-app-for-template-packages/show_usage_in_terminal.png)
+![](/images/articles/cli-app-for-package-template/show_usage.png)
 
 :::message
 exitCodeについて  
