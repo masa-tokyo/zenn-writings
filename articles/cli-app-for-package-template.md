@@ -8,7 +8,10 @@ published: false
 この記事は、[Flutter 大学アドベントカレンダー 2023](https://qiita.com/advent-calendar/2023/flutteruniv) 6日目の記事です。
 
 最近仕事先で初めてDart製のCLIツールを作ったのですが、その過程がとても有益で勉強になったため、この機会に記事にまとめておくことにしました。  
-こちらの現場で一緒の[mono](https://twitter.com/_mono)さんにはたくさんアドバイスいただき大変お世話になりました🙏
+(追記)  
+こちらの現場で一緒の[mono](https://twitter.com/_mono)さんにはたくさんアドバイスいただき大変お世話になりました🙏  
+monoさんの方ではFlutter環境でのCLIアプリについて網羅的に書かれているので、併せてぜひお読みください。  
+https://medium.com/flutter-jp/dart-cli-475c758f7c3a
 
 # 読んでみてほしい人
 こんな方に読んでもらえたら嬉しいです🙌  
