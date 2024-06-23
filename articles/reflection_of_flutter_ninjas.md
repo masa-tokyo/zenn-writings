@@ -3,7 +3,7 @@ title: "FlutterNinjas Tokyo 2024 の運営を終えて"
 emoji: "🥷🏼"   
 type: "Idea"  
 topics: ["Flutter", "カンファレンス"]
-published: false
+published: true
 ---
 # はじめに
 
