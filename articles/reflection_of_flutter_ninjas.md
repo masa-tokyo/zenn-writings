@@ -98,8 +98,13 @@ PARK → 休憩スペース
 ![](https://storage.googleapis.com/zenn-user-upload/4fcb6fbaef63-20240623.png)
 中央に円形に並べたスペースには、休憩時間に楽しんでもらえるようなものを様々置いていました。
 
-| ![](https://storage.googleapis.com/zenn-user-upload/ff32e5898f4d-20240623.png)| ![](https://storage.googleapis.com/zenn-user-upload/0a6c96f05b86-20240623.png) |
-|:---:|:---:|
+<table style="width:100%;">
+  <tr>
+    <td style="width:50%;"><img src="https://storage.googleapis.com/zenn-user-upload/ff32e5898f4d-20240623.png" style="width:100%;"></td>
+    <td style="width:50%;"><img src="https://storage.googleapis.com/zenn-user-upload/0a6c96f05b86-20240623.png" style="width:100%;"></td>
+  </tr>
+</table>
+
 海外のお菓子コーナー  
 運営側が用意した日本のお菓子だけではなく、海外参加者から持ってきてもらった世界中のお菓子を食べられるコーナーも設置していました。
 
@@ -113,8 +118,13 @@ PARK → 休憩スペース
 皆さん想像以上にコーヒー大好きで、空になっては頻繁に追加分をお願いしに行っていました笑
 
 
-| ![](https://storage.googleapis.com/zenn-user-upload/35cac1fd3428-20240623.png)| ![](https://storage.googleapis.com/zenn-user-upload/74b7e580b820-20240623.jpg) |
-|:---:|:---:|
+<table style="width:100%;">
+  <tr>
+    <td style="width:50%;"><img src="https://storage.googleapis.com/zenn-user-upload/35cac1fd3428-20240623.png" style="width:100%;"></td>
+    <td style="width:50%;"><img src="https://storage.googleapis.com/zenn-user-upload/74b7e580b820-20240623.jpg" style="width:100%;"></td>
+  </tr>
+</table>
+
 
 ご自由にお取りくださいコーナー
 
