@@ -90,8 +90,8 @@ https://zenn.dev/kuno/articles/33f74a4293030f
 
 
 #### 海外のお菓子コーナー
-| ![](/images/articles/reflection_of_flutter_ninjas/world_snacks_1.png =300x) | ![](/images/articles/reflection_of_flutter_ninjas/world_snacks_2.png =300x) |
-|:-----------------------------------------------------------------------------:|:---------------------------------------------------------------------------:|
+| ![](/images/articles/reflection_of_flutter_ninjas/world_snacks_1.png =350x) | ![](/images/articles/reflection_of_flutter_ninjas/world_snacks_2.png =350x) |
+|:---------------------------------------------------------------------------:|:---------------------------------------------------------------------------:|
 
 
  
@@ -109,8 +109,8 @@ https://zenn.dev/kuno/articles/33f74a4293030f
 
 
 #### ご自由にお取りくださいコーナー
-| ![](/images/articles/reflection_of_flutter_ninjas/free_to_take_1.png =300x) | ![](/images/articles/reflection_of_flutter_ninjas/free_to_take_2.png =300x) |
-|:-----------------------------------------------------------------------------:|:---------------------------------------------------------------------------:|
+| ![](/images/articles/reflection_of_flutter_ninjas/free_to_take_1.png =350x) | ![](/images/articles/reflection_of_flutter_ninjas/free_to_take_2.png =350x) |
+|:---------------------------------------------------------------------------:|:---------------------------------------------------------------------------:|
 
 
 
@@ -119,7 +119,7 @@ FlutterNinjasのステッカー（Q&Aで渡しているのとは別の通常版�
 Dashくんアイテムは特に人気で、出してからあっという間に無くなっていました。
 
 #### グッズ展示コーナー
-| ![](/images/articles/reflection_of_flutter_ninjas/swag_1.png =300x) | ![](/images/articles/reflection_of_flutter_ninjas/swag_2.png =300x) |
+| ![](/images/articles/reflection_of_flutter_ninjas/swag_1.png =350x) | ![](/images/articles/reflection_of_flutter_ninjas/swag_2.png =350x) |
 |:-------------------------------------------------------------------:|:-------------------------------------------------------------------:|
 
 
@@ -132,7 +132,7 @@ QRコードから抽選に参加してもらい、クロージングでプレゼ
 
 
 #### スピーカーへの質問コーナー
-| ![](/images/articles/reflection_of_flutter_ninjas/ask_the_speaker_1.png =300x) | ![](/images/articles/reflection_of_flutter_ninjas/ask_the_speaker_2.png =300x) |
+| ![](/images/articles/reflection_of_flutter_ninjas/ask_the_speaker_1.png =350x) | ![](/images/articles/reflection_of_flutter_ninjas/ask_the_speaker_2.png =350x) |
 |:------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
 
 
