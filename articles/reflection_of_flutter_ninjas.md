@@ -28,7 +28,7 @@ FlutterNinjas運営のMasakiと言います。
 
 LPはこちら：
 
-[FlutterNinjas Tokyo 2024](https://flutterninjas.dev/)
+https://flutterninjas.dev
 
 会場はお台場の docomo R&D OPEN LAB をお借りして開催しました。
 
@@ -69,7 +69,7 @@ PARK → 休憩スペース
 
 セッションの内容紹介はこちらのkunoさんの記事をぜひご覧ください：
 
-[FlutterNinjas 2024 に参加してきました🥷✨](https://zenn.dev/kuno/articles/33f74a4293030f)
+https://zenn.dev/kuno/articles/33f74a4293030f
 
 各セッションの後にはQ&Aタイムがあり、会場で質問をしてくれた方には、セッションを盛り上げてくれたお礼として限定ステッカーをお渡ししていました。
 
@@ -171,7 +171,7 @@ Bookコーナー
 
 今回はランチと二日目終わりの懇親会ではケータリングも用意しました。
 
-[TKMN on Twitter / X](https://x.com/w_tkmn/status/1801089516406800440)
+https://x.com/w_tkmn/status/1801089516406800440
 
 ![](https://storage.googleapis.com/zenn-user-upload/188c32473ce1-20240623.png)
 
@@ -179,7 +179,7 @@ Bookコーナー
 
 ![](https://storage.googleapis.com/zenn-user-upload/98b586bd3135-20240623.png)
 
-[Iseryu🥳 💙 on Twitter / X](https://x.com/isekiryu/status/1801577479687258292)
+https://x.com/isekiryu/status/1801577479687258292
 
 懇親会の後には居酒屋に行くメンバーも大勢いて、とても盛り上がっていました。
 
@@ -195,20 +195,18 @@ Bookコーナー
 
 （ちなみに、次回の開催が7月末にあるので、良ければぜひお越しください…！）
 
-[FlutterGakkai](https://fluttergakkai.connpass.com/)
+https://fluttergakkai.connpass.com
 
 ただ、FlutterGakkaiが平日の一夜限りのイベントなのに対して、今回のFlutterNinjasは丸々2日間であり参加者の方にもお金を払って来ていただくということで、個人的には一つ大きな挑戦として今回のイベントに取り組ませてもらいました。
 
 準備することも多く大変な側面はあったのですが、世界中からたくさんの人に来てもらえて、「また来年も楽しみにしてる！」と言ってもらえて、本当にやって良かったなとしみじみしています。
 
-||  |
+|![](https://storage.googleapis.com/zenn-user-upload/02eef8e0fed7-20240623.png)| ![](https://storage.googleapis.com/zenn-user-upload/d13956548de4-20240623.png) |
 |:---:|:---:|
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/61d9a9d1-4afd-4a81-a756-67e7abe94a01/Untitled.png)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/cbfb3745-5521-45da-967d-fb1a0aa7ad99/Untitled.png)
 
 参加いただいた方々、スピーカー、スポンサーの皆さん、本当にありがとうございました。
 
 来年は春に開催する方向で動いていくので、公式Xをチェックしてお待ちください！
 
-[FlutterNinjas Tokyo on Twitter / X](https://x.com/FlutterNinjas/status/1801921045362020533)
+https://x.com/FlutterNinjas/status/1801921045362020533
