@@ -73,7 +73,7 @@ https://zenn.dev/kuno/articles/33f74a4293030f
 
 各セッションの後にはQ&Aタイムがあり、会場で質問をしてくれた方には、セッションを盛り上げてくれたお礼として限定ステッカーをお渡ししていました。
 
-![](https://storage.googleapis.com/zenn-user-upload/f35c0da450ac-20240623.jpg)
+![](/images/articles/reflection_of_flutter_ninjas/ninja_sticker.jpg =300x)
 各セッションの合間には、
 
 - 通常休憩→15分
@@ -101,9 +101,8 @@ https://zenn.dev/kuno/articles/33f74a4293030f
 
 ![](/images/articles/reflection_of_flutter_ninjas/world_snacks_1.png =250x)
 
-| ![](/images/articles/reflection_of_flutter_ninjas/world_snacks_1.png =250x) | ![](https://storage.googleapis.com/zenn-user-upload/0a6c96f05b86-20240623.jpg) |
-|:-----------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
-
+| ![](/images/articles/reflection_of_flutter_ninjas/world_snacks_1.png =300x) | ![](/images/articles/reflection_of_flutter_ninjas/world_snacks_2.png =300x) |
+|:-----------------------------------------------------------------------------:|:---------------------------------------------------------------------------:|
 
 
 海外のお菓子コーナー  
@@ -119,8 +118,9 @@ https://zenn.dev/kuno/articles/33f74a4293030f
 皆さん想像以上にコーヒー大好きで、空になっては頻繁に追加分をお願いしに行っていました笑
 
 
-| ![](https://storage.googleapis.com/zenn-user-upload/35cac1fd3428-20240623.png)| ![](https://storage.googleapis.com/zenn-user-upload/74b7e580b820-20240623.jpg) |
-|:---:|:---:|
+| ![](/images/articles/reflection_of_flutter_ninjas/free_to_take_1.png =300x) | ![](/images/articles/reflection_of_flutter_ninjas/free_to_take_2.png =300x) |
+|:-----------------------------------------------------------------------------:|:---------------------------------------------------------------------------:|
+
 
 ご自由にお取りくださいコーナー
 
@@ -128,8 +128,8 @@ FlutterNinjasのステッカー（Q&Aで渡しているのとは別の通常版�
 
 Dashくんアイテムは特に人気で、出してからあっという間に無くなっていました。
 
-|![](https://storage.googleapis.com/zenn-user-upload/c76a4745fb92-20240623.jpeg) | ![](https://storage.googleapis.com/zenn-user-upload/d5f854c8aeae-20240623.png)|
-|:------------------------------------------------------------------------------:|:---:|
+| ![](/images/articles/reflection_of_flutter_ninjas/ask_the_speaker_1.png =300x) | ![](/images/articles/reflection_of_flutter_ninjas/ask_the_speaker_2.png =300x) |
+|:-----------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
 
 グッズ展示コーナー。
 
