@@ -43,7 +43,7 @@ https://flutterninjas.dev
 
 ここからは、各スペースについて具体的に見ていこうと思います。
 
-# BDIDGE（セッション会場）
+# BRIDGE（セッション会場）
 
 　
 ![](https://storage.googleapis.com/zenn-user-upload/344f2845a1b1-20240623.png)
