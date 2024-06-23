@@ -99,7 +99,6 @@ https://zenn.dev/kuno/articles/33f74a4293030f
 中央に円形に並べたスペースには、休憩時間に楽しんでもらえるようなものを様々置いていました。
 
 
-![](/images/articles/reflection_of_flutter_ninjas/world_snacks_1.png =250x)
 
 | ![](/images/articles/reflection_of_flutter_ninjas/world_snacks_1.png =300x) | ![](/images/articles/reflection_of_flutter_ninjas/world_snacks_2.png =300x) |
 |:-----------------------------------------------------------------------------:|:---------------------------------------------------------------------------:|
