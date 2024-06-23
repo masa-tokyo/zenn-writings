@@ -7,7 +7,6 @@ published: false
 ---
 # はじめに
 
----
 
 FlutterNinjas運営のMasakiと言います。
 
@@ -23,8 +22,6 @@ FlutterNinjas運営のMasakiと言います。
 のような方に読んでみてもらえたらと思います。。！
 
 # イベントについて
-
----
 
 LPはこちら：
 
@@ -51,7 +48,6 @@ PARK → 休憩スペース
 
 # BDIDGE（セッション会場）
 
----
 
 ![](https://storage.googleapis.com/zenn-user-upload/344f2845a1b1-20240623.png)
 当日の会場の雰囲気はこのような感じになっていました。
@@ -86,7 +82,6 @@ https://zenn.dev/kuno/articles/33f74a4293030f
 
 # PARK（休憩スペース）
 
----
 
 ![](https://storage.googleapis.com/zenn-user-upload/4ad747426f9e-20240623.jpg)
 雰囲気はこのような感じになっていました。
@@ -166,7 +161,6 @@ Bookコーナー
 
 # ケータリング
 
----
 
 今回はランチと二日目終わりの懇親会ではケータリングも用意しました。
 
@@ -186,7 +180,6 @@ https://x.com/isekiryu/status/1801577479687258292
 
 # 終わりに
 
----
 
 ここまでお読みいただきありがとうございました。
 
