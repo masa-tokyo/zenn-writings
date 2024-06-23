@@ -95,11 +95,14 @@ PARK → 休憩スペース
 
 終日イベントだったのでセッション中にこちらに滞在してる方も結構いるかなと思っていましたが、想像以上に皆さんBRIDGE側で見られていて、休憩を長めに取ったのが功を奏したのかもしれません。
 
-![](https://storage.googleapis.com/zenn-user-upload/4fcb6fbaef63-20240623.png)
+![](https://storage.googleapis.com/zenn-user-upload/4fcb6fbaef63-20240623.png )
 中央に円形に並べたスペースには、休憩時間に楽しんでもらえるようなものを様々置いていました。
 
-| ![](https://storage.googleapis.com/zenn-user-upload/ff32e5898f4d-20240623.png　=250x) | ![](https://storage.googleapis.com/zenn-user-upload/0a6c96f05b86-20240623.jpg　=250x) |
-|:-------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------:|
+
+![](/images/articles/reflection_of_flutter_ninjas/world_snacks_1.png =250x)
+
+| ![](/images/articles/reflection_of_flutter_ninjas/world_snacks_1.png =250x) | ![](https://storage.googleapis.com/zenn-user-upload/0a6c96f05b86-20240623.jpg　=250x) |
+|:-----------------------------------------------------------------------------:|:------------------------------------------------------------------------------------:|
 
 
 
