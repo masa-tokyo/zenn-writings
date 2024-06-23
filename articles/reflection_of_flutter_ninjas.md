@@ -98,10 +98,9 @@ PARK → 休憩スペース
 ![](https://storage.googleapis.com/zenn-user-upload/4fcb6fbaef63-20240623.png)
 中央に円形に並べたスペースには、休憩時間に楽しんでもらえるようなものを様々置いていました。
 
-<div style="display: flex; justify-content: space-between;">
-  <img src="https://storage.googleapis.com/zenn-user-upload/ff32e5898f4d-20240623.png" style="width: 48%;" />
-  <img src="https://storage.googleapis.com/zenn-user-upload/0a6c96f05b86-20240623.png" style="width: 48%;" />
-</div>
+| ![](https://storage.googleapis.com/zenn-user-upload/ff32e5898f4d-20240623.png){ width=200 } | ![](https://storage.googleapis.com/zenn-user-upload/0a6c96f05b86-20240623.jpg){ width=200 } |
+|:-------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|
+
 
 
 海外のお菓子コーナー  
