@@ -85,8 +85,6 @@ https://zenn.dev/kuno/articles/33f74a4293030f
 
 両脇にはスポンサーブースがあり、中央奥の大型モニターにはBRIDGE側のセッションスライドが映し出されていて、こちら側でもセッションが見れるようになっていました。
 
-終日イベントだったのでセッション中にこちらに滞在してる方も結構いるかなと思っていましたが、想像以上に皆さんBRIDGE側で見られていて、休憩を長めに取ったのが功を奏したのかもしれません。
-
 ![](https://storage.googleapis.com/zenn-user-upload/4fcb6fbaef63-20240623.png )
 中央に円形に並べたスペースには、休憩時間に楽しんでもらえるようなものを様々置いていました。
 
@@ -134,8 +132,8 @@ QRコードから抽選に参加してもらい、クロージングでプレゼ
 
 
 #### スピーカーへの質問コーナー
-|![](https://storage.googleapis.com/zenn-user-upload/46c4d12cc4ad-20240623.png)| ![](https://storage.googleapis.com/zenn-user-upload/6b208c34d597-20240623.png) |
-|:---:|:---:|
+| ![](/images/articles/reflection_of_flutter_ninjas/ask_the_speaker_1.png =300x) | ![](/images/articles/reflection_of_flutter_ninjas/ask_the_speaker_2.png =300x) |
+|:------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
 
 
 畳にゆったりと座れる場所で、海外スピーカーにとってはかなり新鮮な雰囲気だったのかなと思います。
