@@ -31,7 +31,6 @@ https://flutterninjas.dev
 
 | ![](https://storage.googleapis.com/zenn-user-upload/0c5d1f764341-20240623.jpg) | ![](https://storage.googleapis.com/zenn-user-upload/aa3ea044378b-20240623.jpg) |
 |:---:|:---:|
-| 会場案内                                                                         | 受付                                                                             |  
 
 会場マップはこちら：
 
@@ -48,7 +47,7 @@ PARK → 休憩スペース
 
 # BDIDGE（セッション会場）
 
-
+　
 ![](https://storage.googleapis.com/zenn-user-upload/344f2845a1b1-20240623.png)
 当日の会場の雰囲気はこのような感じになっていました。
 
@@ -122,8 +121,8 @@ FlutterNinjasのステッカー（Q&Aで渡しているのとは別の通常版�
 
 Dashくんアイテムは特に人気で、出してからあっという間に無くなっていました。
 
-| ![](/images/articles/reflection_of_flutter_ninjas/ask_the_speaker_1.png =300x) | ![](/images/articles/reflection_of_flutter_ninjas/ask_the_speaker_2.png =300x) |
-|:-----------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
+| ![](/images/articles/reflection_of_flutter_ninjas/swag_1.png =300x) | ![](/images/articles/reflection_of_flutter_ninjas/swag_2.png =300x) |
+|:-------------------------------------------------------------------:|:-------------------------------------------------------------------:|
 
 グッズ展示コーナー。
 
