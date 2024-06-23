@@ -38,8 +38,7 @@ LPはこちら：
 
 会場マップはこちら：
 
-![CleanShot 2024-06-21 at 21.11.39.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/55a348dc-bb0b-4532-8a8c-8a19f233381e/CleanShot_2024-06-21_at_21.11.39.png)
-
+![](https://storage.googleapis.com/zenn-user-upload/ac1e3aa6cf56-20240623.png)
 上記マップのように、会場は、
 
 BRIDGE → セッションを見るスペース
@@ -54,8 +53,7 @@ PARK → 休憩スペース
 
 ---
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/9811aff0-cc29-47b8-ae5c-82d6a4284f8d/Untitled.png)
-
+![](https://storage.googleapis.com/zenn-user-upload/344f2845a1b1-20240623.png)
 当日の会場の雰囲気はこのような感じになっていました。
 
 - ステージ向かって左側 → スピーカー
@@ -65,13 +63,9 @@ PARK → 休憩スペース
 
 セッションスケジュールはこちら：
 
-![CleanShot 2024-06-21 at 21.10.27.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/a355ff36-c237-4b77-9d8c-9979cb624421/CleanShot_2024-06-21_at_21.10.27.png)
-
-![CleanShot 2024-06-21 at 21.10.32.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/06d86529-b226-4575-9ee0-07f2718a90cf/CleanShot_2024-06-21_at_21.10.32.png)
-
-![CleanShot 2024-06-21 at 21.10.45.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/a433f7cf-3efd-4ae6-9c43-953b1adf763a/CleanShot_2024-06-21_at_21.10.45.png)
-
-![CleanShot 2024-06-21 at 21.10.49.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/8c564218-faee-4a47-b021-bddf9dabe161/CleanShot_2024-06-21_at_21.10.49.png)
+|![](https://storage.googleapis.com/zenn-user-upload/ef187a1f0a85-20240623.png) | ![](https://storage.googleapis.com/zenn-user-upload/4b0f0ef69007-20240623.png) |
+|:-----------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
+|                                       ![](https://storage.googleapis.com/zenn-user-upload/34e8f04c58e5-20240623.png)                                        |                                        ![](https://storage.googleapis.com/zenn-user-upload/78af9c59db86-20240623.png)                                        |
 
 セッションの内容紹介はこちらのkunoさんの記事をぜひご覧ください：
 
@@ -79,8 +73,7 @@ PARK → 休憩スペース
 
 各セッションの後にはQ&Aタイムがあり、会場で質問をしてくれた方には、セッションを盛り上げてくれたお礼として限定ステッカーをお渡ししていました。
 
-![IMG_4137.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/b896e7ae-f2bb-4332-8dc8-0e8d2a32d463/IMG_4137.jpg)
-
+![](https://storage.googleapis.com/zenn-user-upload/f35c0da450ac-20240623.jpg)
 各セッションの合間には、
 
 - 通常休憩→15分
@@ -95,37 +88,33 @@ PARK → 休憩スペース
 
 ---
 
-![IMG_6504.JPG](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/3a6c90c4-5901-43e5-825e-f97de4a65a1b/IMG_6504.jpg)
-
+![](https://storage.googleapis.com/zenn-user-upload/4ad747426f9e-20240623.jpg)
 雰囲気はこのような感じになっていました。
 
 両脇にはスポンサーブースがあり、中央奥の大型モニターにはBRIDGE側のセッションスライドが映し出されていて、こちら側でもセッションが見れるようになっていました。
 
 終日イベントだったのでセッション中にこちらに滞在してる方も結構いるかなと思っていましたが、想像以上に皆さんBRIDGE側で見られていて、休憩を長めに取ったのが功を奏したのかもしれません。
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/424bec18-db3e-46d7-86c6-8132dc5ac72d/Untitled.png)
-
+![](https://storage.googleapis.com/zenn-user-upload/4fcb6fbaef63-20240623.png)
 中央に円形に並べたスペースには、休憩時間に楽しんでもらえるようなものを様々置いていました。
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/0e1eaf78-b893-4ce0-b13a-01e516c74121/Untitled.png)
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/29073f69-b139-47cc-ae50-43c42ba34326/Untitled.png)
-
+| ![](https://storage.googleapis.com/zenn-user-upload/ff32e5898f4d-20240623.png)| ![](https://storage.googleapis.com/zenn-user-upload/0a6c96f05b86-20240623.png) |
+|:---:|:---:|
+海外のお菓子コーナー  
 運営側が用意した日本のお菓子だけではなく、海外参加者から持ってきてもらった世界中のお菓子を食べられるコーナーも設置していました。
 
 とても様々なお菓子を持って来てもらい、異文化が味わえてとても良かったなと思います。
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/a3e2e807-0aef-43ab-a825-dc814d01d102/308de872-1626-46fe-a5a2-a3fdc9877101.png)
-
+![](https://storage.googleapis.com/zenn-user-upload/5b8d3fb54f8c-20240623.png)
 ドリンクコーナー
 
 会場近くのカフェからの出来立てコーヒーをお届けしていました。
 
 皆さん想像以上にコーヒー大好きで、空になっては頻繁に追加分をお願いしに行っていました笑
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/669c6c9e-073b-4ed1-8885-9ed0dd6bfad9/Untitled.png)
 
-![IMG_6563.HEIC](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/d4249fb3-1a5b-4771-b970-55e36a598ef7/IMG_6563.heic)
+| ![](https://storage.googleapis.com/zenn-user-upload/35cac1fd3428-20240623.png)| ![](https://storage.googleapis.com/zenn-user-upload/74b7e580b820-20240623.jpg) |
+|:---:|:---:|
 
 ご自由にお取りくださいコーナー
 
