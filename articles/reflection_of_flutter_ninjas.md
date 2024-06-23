@@ -14,8 +14,8 @@ FlutterNinjas運営のMasakiと言います。
 
 また、運営として「こんなことを考えながら運営してました」というようなことを含めて振り返りながら書いていこうと思います。
 
-- FlutterNinjasに参加しておらずどんな雰囲気だったのか気になる方
-- FlutterNinjas参加者で当日の雰囲気を懐かしみたい or 運営の裏側的なところが気になる方
+- FlutterNinjasに参加しておらずどんな雰囲気だったのか気になる
+- FlutterNinjas参加者で当日の雰囲気を懐かしみたい or 運営の裏側的なところが気になる
 
 のような方に読んでみてもらえたらと思います。。！
 
@@ -116,7 +116,7 @@ https://zenn.dev/kuno/articles/33f74a4293030f
 
 FlutterNinjasのステッカー（Q&Aで渡しているのとは別の通常版）やGoogleのFlutterチームから提供してもらったDashくんステッカーやピンバッジ、その他参加者の方が持って来てくれたステッカーなどを置いていました。
 
-Dashくんアイテムは特に人気で、出してからあっという間に無くなっていました。
+Dashくんのグッズは特に人気ですぐに無くなっていたので、ゲット出来た人はラッキーだったと思います笑
 
 #### グッズ展示コーナー
 | ![](/images/articles/reflection_of_flutter_ninjas/swag_1.png =350x) | ![](/images/articles/reflection_of_flutter_ninjas/swag_2.png =350x) |
