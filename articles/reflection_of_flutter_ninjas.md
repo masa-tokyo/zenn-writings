@@ -35,9 +35,9 @@ https://flutterninjas.dev
 ![](https://storage.googleapis.com/zenn-user-upload/ac1e3aa6cf56-20240623.png)
 上記マップのように、会場は、
 
-BRIDGE → セッションを見るスペース
+- BRIDGE → セッションを見るスペース
 
-PARK → 休憩スペース
+- PARK → 休憩スペース
 
 という感じになっていました。
 
