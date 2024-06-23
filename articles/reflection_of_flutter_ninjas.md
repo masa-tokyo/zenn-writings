@@ -101,8 +101,8 @@ PARK → 休憩スペース
 
 ![](/images/articles/reflection_of_flutter_ninjas/world_snacks_1.png =250x)
 
-| ![](/images/articles/reflection_of_flutter_ninjas/world_snacks_1.png =250x) | ![](https://storage.googleapis.com/zenn-user-upload/0a6c96f05b86-20240623.jpg　=250x) |
-|:-----------------------------------------------------------------------------:|:------------------------------------------------------------------------------------:|
+| ![](/images/articles/reflection_of_flutter_ninjas/world_snacks_1.png =250x) | ![](https://storage.googleapis.com/zenn-user-upload/0a6c96f05b86-20240623.jpg) |
+|:-----------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
 
 
 
