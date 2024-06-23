@@ -128,9 +128,8 @@ FlutterNinjasのステッカー（Q&Aで渡しているのとは別の通常版�
 
 Dashくんアイテムは特に人気で、出してからあっという間に無くなっていました。
 
-![IMG_6507.jpeg](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/53dba642-2ec3-4139-b599-d6629174db11/IMG_6507.jpeg)
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/530ef853-8511-4688-9990-22f61448a0c1/Untitled.png)
+|![](https://storage.googleapis.com/zenn-user-upload/c76a4745fb92-20240623.jpeg) | ![](https://storage.googleapis.com/zenn-user-upload/d5f854c8aeae-20240623.png)|
+|:------------------------------------------------------------------------------:|:---:|
 
 グッズ展示コーナー。
 
@@ -140,15 +139,15 @@ QRコードから抽選に参加してもらい、クロージングでプレゼ
 
 ほとんど全員が抽選に参加してくれてとても盛り上がっていました。
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/5d3321ff-41de-4b51-a0b6-765130a04f5b/Untitled.png)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/70fc71fe-8cac-4f7d-b89f-54003c9e855e/Untitled.png)
+|![](https://storage.googleapis.com/zenn-user-upload/46c4d12cc4ad-20240623.png)| ![](https://storage.googleapis.com/zenn-user-upload/6b208c34d597-20240623.png) |
+|:---:|:---:|
 
 スピーカーへの質問スペース。
 
 畳にゆったりと座れる場所で、海外スピーカーにとってはかなり新鮮な雰囲気だったのかなと思います。
 
-![IMG_6534.HEIC](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/26d70e0e-eecf-4e03-a328-477d8fa228fe/IMG_6534.heic)
+![](https://storage.googleapis.com/zenn-user-upload/2d0ec099ec57-20240623.jpg)
 
 フリートークコーナー
 
@@ -158,7 +157,7 @@ QRコードから抽選に参加してもらい、クロージングでプレゼ
 
 ただ、ここに座って会話してるのはほとんど見かけず、このようなサポートが無くとも皆さん活発に会話していたので嬉しい誤算でした。笑
 
-![IMG_6535.HEIC](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/0a7cba4b-b58c-4350-933e-c53e7527ccef/IMG_6535.heic)
+![](https://storage.googleapis.com/zenn-user-upload/65e9275c3eca-20240623.jpg)
 
 Bookコーナー
 
@@ -174,17 +173,17 @@ Bookコーナー
 
 [TKMN on Twitter / X](https://x.com/w_tkmn/status/1801089516406800440)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/d588c1f9-974c-4aab-bbf5-08c8545bb024/Untitled.png)
+![](https://storage.googleapis.com/zenn-user-upload/188c32473ce1-20240623.png)
 
 今回は海外からの参加メンバーも多かったため、ベジタリアン対応メニューも用意していました。
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/d101c0c7-a6ca-49b3-a9cf-4715034e4e61/Untitled.png)
+![](https://storage.googleapis.com/zenn-user-upload/98b586bd3135-20240623.png)
 
 [Iseryu🥳 💙 on Twitter / X](https://x.com/isekiryu/status/1801577479687258292)
 
 懇親会の後には居酒屋に行くメンバーも大勢いて、とても盛り上がっていました。
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/fe33380f-5b99-48a3-b35f-740b7310c227/Untitled.png)
+![](https://storage.googleapis.com/zenn-user-upload/3eb3967a59dd-20240623.png)
 
 # 終わりに
 
@@ -202,6 +201,8 @@ Bookコーナー
 
 準備することも多く大変な側面はあったのですが、世界中からたくさんの人に来てもらえて、「また来年も楽しみにしてる！」と言ってもらえて、本当にやって良かったなとしみじみしています。
 
+||  |
+|:---:|:---:|
 ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/61d9a9d1-4afd-4a81-a756-67e7abe94a01/Untitled.png)
 
 ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/cbfb3745-5521-45da-967d-fb1a0aa7ad99/Untitled.png)
