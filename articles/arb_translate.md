@@ -148,7 +148,7 @@ gemini-1.5proで日本語→英語への翻訳を2回ほど実行した時の様
 ![](/images/articles/arb_translate/gcp.png)
 
 
-## 5. context
+## 5. contextの付与
 
 翻訳時の精度を向上させるために、踏まえてほしい追加の文脈を渡すことが出来ます。
 
@@ -169,7 +169,7 @@ nullable-getter: false
 arb-translate-context: {アプリ情報や翻訳の方針などの追加文脈}
 ```
 
-例えば、元々「日本酒」→ 「Japanese rice wine」と翻訳されていたものに「日本語をそのまま訳してほしい」というcontextを渡すと、「Sake」と翻訳してくれるようになったりします。ちなみにですが、同様のことを何度かやっていたらcontext無しでもSakeが返ってくるようになったので、日に日に学んで進化していそうな気がします…
+例えば、元々「日本酒」→ 「Japanese rice wine」と翻訳されていた場合に「日本語をそのまま訳してほしい」というcontextを渡すと、「Sake」と翻訳してくれるようになったりします。
 
 ## おまけ - 実行コマンド作成
 
@@ -257,7 +257,7 @@ void _runProcess(String executable, List<String> arguments) {
 
 ちなみに、APIキーを参照する設定ファイル自体は `.gitignore` に入れていますが、`.secret.example` のようなものをgit管理するようにすると、開発者個々人が手元で作る際に親切かなと思います。
 
-```file: .secret
+```file: .secret.example
 # Check out the https://www.XXXXXX.com for the actual value
 ARB_TRANSLATE_API_KEY=YOUR_API_KEY
 ```
