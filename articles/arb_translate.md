@@ -178,7 +178,7 @@ arb-translate-context: {アプリ情報や翻訳の方針などの追加文脈}
 こちらを利用することで、上記で登場したAPIキーやモデル指定などを一括で指定出来ます。
 環境構築用コマンドなど、よく使うコマンド諸々も定義出来るためとても便利です。
 
-::: details `tools/grind.dart`
+::: details tools/grind.dart
 ```dart
 import 'dart:io';
 
