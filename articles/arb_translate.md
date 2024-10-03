@@ -54,9 +54,62 @@ https://github.com/masa-tokyo/arb_translate_sample
 dart pub global activate arb_translate
 ```
 
-### 2. APIキー取得
-
+### 2. モデル選択
 本パッケージではOpenAIやGemini、その他カスタムモデルなども利用できるようですが、今回は無料枠のあるGeminiのAPIを使って進めていきます。
+
+以下のように、コマンドライン or L10n.yaml から指定出来ます。
+
+**選択肢１）コマンドライン上で指定**
+
+```bash
+arb_translate --model gemini-1.5-flash
+```
+
+**選択肢２） `L10n.yaml` で指定**
+
+```yaml
+template-arb-file: app_ja.arb
+output-class: L10n
+nullable-getter: false
+arb-translate-model: gemini-1.5-flash
+```
+
+Gemini API では、gemini-1.5-flash, gemini-1.0-pro (デフォルト), gemini-1.5-pro があり、どのモデルも無料で利用が可能です。
+
+利用上限に関しては、分単位と日単位の制限があるようですが、最上位モデルの `gemini 1.5-pro` であっても、かなりの量利用出来そうな印象を受けました。
+
+一日に何十回も大量の言語ファイルを翻訳するような状況でない限りは最上位モデルであっても良いのかなと思います。
+
+gemini-1.5proで日本語→英語への翻訳を2回ほど実行した時の様子：
+
+![](/images/articles/arb_translate/gcp.png)
+
+
+## 3. contextの付与
+
+翻訳時の精度を向上させるために、踏まえてほしい追加の文脈を渡すことが出来ます。
+
+指定方法に関しては、モデル指定の場合と同様にコマンドライン or L10n.yaml から可能です。
+
+**選択肢１）コマンドライン上で指定**
+
+```bash
+arb_translate --context {アプリ情報や翻訳の方針などの追加文脈}
+```
+
+**選択肢２） `L10n.yaml` で指定**
+
+```yaml
+template-arb-file: app_ja.arb
+output-class: L10n
+nullable-getter: false
+arb-translate-context: {アプリ情報や翻訳の方針などの追加文脈}
+```
+
+例えば、元々「日本酒」→ 「Japanese rice wine」と翻訳されていた場合に「日本語をそのまま訳してほしい」というcontextを渡すと、「Sake」と翻訳してくれるようになったりします。
+
+
+### 4. APIキー取得
 
 以下よりAPIキーを取得しましょう：
 
@@ -66,7 +119,7 @@ GCP上の既存プロジェクト選択 or 必要なら新しくプロジェク�
 
 ![](/images/articles/arb_translate/google_ai_studio.png)
 
-### 3. APIキーの設定
+### 5. APIキーの設定
 
 このAPIキーの扱いが悩ましいかと思いますが、指定の仕方としては以下の3通りがあります。
 
@@ -107,7 +160,7 @@ https://qiita.com/kompiro/items/5fc46089247a56243a62
 
 都度指定するのは手間ですが、APIキーを含んだコマンドを定義しておくことでその手間を省くことが出来ます。
 
-詳細は最後のおまけパートでお話します。
+詳細はこの後のおまけパートでお話します。
 
 :::message
 APIキーの取り扱いについて
@@ -117,59 +170,6 @@ Gemini APIを利用出来るパッケージとして他に [google_generative_ai
 一方で、今回のarb_translateは開発時のみ作業者がAPIを利用すれば良いため、商用利用のアプリであっても問題なく利用が可能です。
 :::
 
-
-### 4. モデル選択
-
-以下のように、コマンドライン or L10n.yaml から指定出来ます。
-
-**選択肢１）コマンドライン上で指定**
-
-```bash
-arb_translate --model gemini-1.5-flash
-```
-
-**選択肢２） `L10n.yaml` で指定**
-
-```yaml
-template-arb-file: app_ja.arb
-output-class: L10n
-nullable-getter: false
-arb-translate-model: gemini-1.5-flash
-```
-
-Gemini API では、gemini-1.5-flash, gemini-1.0-pro (デフォルト), gemini-1.5-pro があり、どのモデルも無料で利用が可能です。
-
-利用上限に関しては、分単位と日単位の制限があるようですが、最上位モデルの `gemini 1.5-pro` であっても、かなりの量利用出来そうな印象を受けました。
-
-一日に何十回も大量の言語ファイルを翻訳するような状況でない限りは最上位モデルであっても良いのかなと思います。
-
-gemini-1.5proで日本語→英語への翻訳を2回ほど実行した時の様子：
-
-![](/images/articles/arb_translate/gcp.png)
-
-
-## 5. contextの付与
-
-翻訳時の精度を向上させるために、踏まえてほしい追加の文脈を渡すことが出来ます。
-
-指定方法に関しては、モデル指定の場合と同様にコマンドライン or L10n.yaml から可能です。
-
-**選択肢１）コマンドライン上で指定**
-
-```bash
-arb_translate --context {アプリ情報や翻訳の方針などの追加文脈}
-```
-
-**選択肢２） `L10n.yaml` で指定**
-
-```yaml
-template-arb-file: app_ja.arb
-output-class: L10n
-nullable-getter: false
-arb-translate-context: {アプリ情報や翻訳の方針などの追加文脈}
-```
-
-例えば、元々「日本酒」→ 「Japanese rice wine」と翻訳されていた場合に「日本語をそのまま訳してほしい」というcontextを渡すと、「Sake」と翻訳してくれるようになったりします。
 
 ## おまけ - 実行コマンド作成
 
