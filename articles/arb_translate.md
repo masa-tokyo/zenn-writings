@@ -13,15 +13,15 @@ published: false
 
 https://pub.dev/packages/arb_translate
 
-同じ悩みを持っている方の参考になったら幸いです。
+この記事が同じ悩みを持っている方の参考になったら幸いです！
 
 ## 実際の挙動
 
-`arb_translate` コマンドの実行することで、デフォルト言語から翻訳が走ってファイルの中身を自動生成してくれます：
+`arb_translate` コマンドを実行することで、デフォルト言語から翻訳が走ってファイルの中身を自動生成してくれます。
+既にファイル上にフィールドが存在する場合には、足りていないもののみ補ってくれます。
 
-https://x.com/LeanCodePl/status/1758217691934892211
+https://x.com/masaki_hideout/status/1841759256338710550
 
-また、既にファイル上にフィールドが存在する場合、足りていないもののみ補ってくれます。
 
 ## 前提
 
@@ -85,7 +85,7 @@ arb-translate-api-key: XXXXXXXXXXXXXXXX
 
 **選択肢２）環境変数設定**
 
-`.zshrc` 等のシェル設定ファイルに以下のように指定することが出来ます：
+`.zshrc` 等シェルの設定ファイルに以下のように指定することが出来ます：
 
 ```bash
 export ARB_TRANSLATE_API_KEY="XXXXXXXXXXXXXXXX"
@@ -180,13 +180,86 @@ arb-translate-context: {アプリ情報や翻訳の方針などの追加文脈}
 環境構築用のコマンドなど、よく使うコマンド諸々も定義出来るためとても便利です。
 
 以下、コード全体です：
+```dart: tools/grind.dart
+import 'dart:io';
 
-- [ ]  show and fold code?
+import 'package:grinder/grinder.dart';
+
+main(args) => grind(args);
+
+/// Installs the `arb_translate` package globally.
+@Task()
+setup() {
+  _runProcess(
+    'dart',
+    ['pub', 'global', 'activate', 'arb_translate'],
+  );
+}
+
+/// Context to improve translation quality.
+const _translateContext = '''
+Japanese words should be translated into English directly.
+For example, おにぎり should be Onigiri.
+''';
+
+/// Runs the `arb_translate` command to generate the `.arb` files.
+///
+/// You can run this command with `grind`.
+///
+/// Use this command after:
+/// - installing the package with [setup]
+/// - copying `.secret.example` and creating `.secret` file for the API key
+///
+/// To improve the quality of translation, update [_translateContext].
+@DefaultTask()
+translate() {
+  try {
+    final envEntries = File('.secret').readAsLinesSync();
+    final apiKey = envEntries
+        .firstWhere((e) => e.startsWith('ARB_TRANSLATE_API_KEY='))
+        .split('=')[1];
+
+    // choose the highest model, which is expected to be within the free tier
+    const model = 'gemini-1.5-pro';
+    _runProcess(
+      'arb_translate',
+      [
+        '--api-key',
+        apiKey,
+        // '--context',
+        // _translateContext,
+        // '--model',
+        // model,
+      ],
+    );
+  } on PathNotFoundException catch (_) {
+    exitCode = 1;
+    stderr.writeln(
+        'PathNotFoundException: `.secret` file is not found. Please create it by copying `.secret.example`.');
+  } on StateError catch (_) {
+    exitCode = 1;
+    stderr.writeln(
+        'StateError: `.secret` file does not contain `ARB_TRANSLATE_API_KEY`.');
+  }
+}
+
+void _runProcess(String executable, List<String> arguments) {
+  final result = Process.runSync(
+    executable,
+    arguments,
+  );
+
+  stdout.writeln(result.stdout);
+  stderr.writeln(result.stderr);
+}
+
+```
 
 ちなみに、APIキーを参照する設定ファイル自体は `.gitignore` に入れていますが、`.secret.example` のようなものをgit管理するようにすると、開発者個々人が手元で作る際に親切かなと思います。
 
-```bash
-
+```file: .secret
+# Check out the https://www.XXXXXX.com for the actual value
+ARB_TRANSLATE_API_KEY=YOUR_API_KEY
 ```
 
 CLIツールについて興味ある方は以前書いたこちらの記事もぜひご覧ください：
