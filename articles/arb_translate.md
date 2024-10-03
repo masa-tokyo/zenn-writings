@@ -226,10 +226,10 @@ translate() {
       [
         '--api-key',
         apiKey,
-        // '--context',
-        // _translateContext,
-        // '--model',
-        // model,
+        '--context',
+        _translateContext,
+        '--model',
+        model,
       ],
     );
   } on PathNotFoundException catch (_) {
