@@ -47,7 +47,6 @@ https://github.com/masa-tokyo/arb_translate_sample
 
 ### 1. インストール
 
-- [ ]  compare dart and flutter command
 
 まずは、パッケージを以下コマンドでインストールします：
 
@@ -61,11 +60,11 @@ dart pub global activate arb_translate
 
 以下よりAPIキーを取得しましょう：
 
-[](https://aistudio.google.com/app/apikey)
+https://aistudio.google.com/app/apikey
 
 GCP上の既存プロジェクト選択 or 必要なら新しくプロジェクト作成します：
 
-![CleanShot 2024-09-27 at 12.54.02.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/e7cfabdf-5ad2-4266-810d-63d501311c5b/CleanShot_2024-09-27_at_12.54.02.png)
+![](/images/articles/arb_translate/google_ai_studio.png)
 
 ### 3. APIキーの設定
 
@@ -110,13 +109,14 @@ https://qiita.com/kompiro/items/5fc46089247a56243a62
 
 詳細は最後のおまけパートでお話します。
 
-- [ ]  make it info
-
-i)APIキーの取り扱いについて
+:::message
+APIキーの取り扱いについて
 
 Gemini APIを利用出来るパッケージとして他に [google_generative_ai](https://pub.dev/packages/google_generative_ai) がありますが、APIキーの取り扱い方という点については大きく異なります。こちらのパッケージはアプリ内で利用者が都度APIを利用する想定となっているためです。その場合、ストアへ公開するアプリ内にAPIキーを含む必要が出てきます。例えば、[flutter_dotenv](https://pub.dev/packages/flutter_dotenv) パッケージを利用して環境ごとに別々のキーを読み込むようにした場合、（.envファイル自体はGit管理から外したとしても）実際に配布されるアプリ内のアセットに文字列として含める必要が出てきてしまいます。この意味で、google_generative_ai パッケージはプロトタイプ利用のみにするよう推奨されています。
 
 一方で、今回のarb_translateは開発時のみ作業者がAPIを利用すれば良いため、商用利用のアプリであっても問題なく利用が可能です。
+:::
+
 
 ### 4. モデル選択
 
@@ -145,7 +145,8 @@ Gemini API では、gemini-1.5-flash, gemini-1.0-pro (デフォルト), gemini-1
 
 gemini-1.5proで日本語→英語への翻訳を2回ほど実行した時の様子：
 
-![CleanShot 2024-10-02 at 15.23.01@2x.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/abe71bbd-ce9e-46f5-8eeb-752fe85f950a/CleanShot_2024-10-02_at_15.23.012x.png)
+![](/images/articles/arb_translate/gcp.png)
+
 
 ## 5. context
 
@@ -203,7 +204,7 @@ https://zenn.dev/masa_tokyo/articles/cli-app-for-package-template
 - ファイル内のフィールドの並び順までデフォルト言語に揃えてくれる
     - 並び順がぐちゃぐちゃになることで抜け漏れが発生する要因になっていたので、とてもありがたいです。
 - contextが渡せることで翻訳精度の向上が見込める
-    - モデル自体の賢さもあるので、文脈渡すことでどれだけ精度が向上していくのかはよく使って確かめていきたいですね。
+    - モデル自体の賢さも関係しますが、翻訳の方針をカスタマイズ出来るのは嬉しいですね。
 
 お読みいただきありがとうございました！
 
