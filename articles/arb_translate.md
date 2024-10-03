@@ -243,7 +243,7 @@ For example, おにぎり should be Onigiri.
 :::
 
 今回は、APIキーを `.secret` ファイルに記載して、以下のように取得しています。
-こういった処理は`Makefile`のような利用しても出来るとは思いますが、grindパッケージを利用すればDartで書けて少し複雑な処理やエラーハンドリングがしやすいという点が良いのかなと思っています。
+こういった処理は`Makefile`のようなスクリプトでも実現出来るとは思いますが、grindパッケージを利用すればDartで書けて少し複雑な処理やエラーハンドリングがしやすいという点が良いのかなと思っています。
 ```dart
     final envEntries = File('.secret').readAsLinesSync();
     final apiKey = envEntries
