@@ -9,13 +9,9 @@ published: false
 
 多言語対応でarbファイルをいじるのって地味に手間で大変ですよね…
 
-- [ ]  check OGP
+ということで、今回は[先日monoさんもおすすめされていた](https://x.com/_mono/status/1829048488967188978)、arb_translateというパッケージを使ってみました。
 
-[mono on Twitter / X](https://x.com/_mono/status/1829048488967188978)
-
-ということで、今回は先日monoさんもおすすめされていた、arb_translateというパッケージを使ってみました。
-
-[arb_translate | Dart package](https://pub.dev/packages/arb_translate)
+https://pub.dev/packages/arb_translate
 
 同じ悩みを持っている方の参考になったら幸いです。
 
