@@ -23,7 +23,7 @@ published: false
 
 `arb_translate` コマンドの実行することで、デフォルト言語から翻訳が走ってファイルの中身を自動生成してくれます：
 
-https://x.com/_mono/status/1829048488967188978
+https://x.com/LeanCodePl/status/1758217691934892211
 
 また、既にファイル上にフィールドが存在する場合、足りていないもののみ補ってくれます。
 
