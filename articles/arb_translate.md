@@ -189,17 +189,11 @@ main(args) => grind(args);
 /// Installs the `arb_translate` package globally.
 @Task()
 setup() {
-  _runProcess(
+  run(
     'dart',
-    ['pub', 'global', 'activate', 'arb_translate'],
+    arguments: ['pub', 'global', 'activate', 'arb_translate'],
   );
 }
-
-/// Context to improve translation quality.
-const _translateContext = '''
-Japanese words should be translated into English directly.
-For example, おにぎり should be Onigiri.
-''';
 
 /// Runs the `arb_translate` command to generate the `.arb` files.
 ///
@@ -215,41 +209,35 @@ translate() {
   try {
     final envEntries = File('.secret').readAsLinesSync();
     final apiKey = envEntries
-        .firstWhere((e) => e.startsWith('ARB_TRANSLATE_API_KEY='))
-        .split('=')[1];
+            .firstWhere((e) => e.startsWith('ARB_TRANSLATE_API_KEY='))
+            .split('=')[1];
+
+    // Context to improve translation quality.
+    const context = '''
+Japanese words should be translated into English directly.
+For example, おにぎり should be Onigiri.
+''';
 
     // choose the highest model, which is expected to be within the free tier
     const model = 'gemini-1.5-pro';
-    _runProcess(
-      'arb_translate',
-      [
-        '--api-key',
-        apiKey,
-        '--context',
-        _translateContext,
-        '--model',
-        model,
-      ],
-    );
+
+    run('arb_translate', arguments: [
+      '--api-key',
+      apiKey,
+      '--context',
+      context,
+      '--model',
+      model,
+    ]);
   } on PathNotFoundException catch (_) {
     exitCode = 1;
     stderr.writeln(
-        'PathNotFoundException: `.secret` file is not found. Please create it by copying `.secret.example`.');
+            'PathNotFoundException: `.secret` file is not found. Please create it by copying `.secret.example`.');
   } on StateError catch (_) {
     exitCode = 1;
     stderr.writeln(
-        'StateError: `.secret` file does not contain `ARB_TRANSLATE_API_KEY`.');
+            'StateError: `.secret` file does not contain `ARB_TRANSLATE_API_KEY`.');
   }
-}
-
-void _runProcess(String executable, List<String> arguments) {
-  final result = Process.runSync(
-    executable,
-    arguments,
-  );
-
-  stdout.writeln(result.stdout);
-  stderr.writeln(result.stderr);
 }
 
 ```
@@ -271,6 +259,27 @@ void _runProcess(String executable, List<String> arguments) {
 ARB_TRANSLATE_API_KEY=YOUR_API_KEY
 ```
 
+以下の箇所で、コマンド実行をしています：
+
+```dart
+    const context = '''
+Japanese words should be translated into English directly.
+For example, おにぎり should be Onigiri.
+''';
+
+    const model = 'gemini-1.5-pro';
+
+    run('arb_translate', arguments: [
+      '--api-key',
+      apiKey,
+      '--context',
+      context,
+      '--model',
+      model,
+    ]);
+```
+
+`run`はgrinderパッケージが用意しているメソッドで、内部的に`Process.runSync`を利用してコマンド実行をしています。
 CLIツールについて興味ある方は以前書いたこちらの記事もぜひご覧ください：
 
 https://zenn.dev/masa_tokyo/articles/cli-app-for-package-template
