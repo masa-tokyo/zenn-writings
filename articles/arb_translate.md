@@ -68,7 +68,7 @@ GCP上の既存プロジェクト選択 or 必要なら新しくプロジェク�
 
 ### 3. APIキーの設定
 
-APIキーの指定の仕方としては、以下の3通りがあります。
+このAPIキーの扱いが悩ましいかと思いますが、指定の仕方としては以下の3通りがあります。
 
 **選択肢１） `L10n.yaml` へ直指定**
 
@@ -175,12 +175,11 @@ arb-translate-context: {アプリ情報や翻訳の方針などの追加文脈}
 
 今回の[サンプルリポジトリ](https://github.com/masa-tokyo/arb_translate_sample)では、[grinder](https://pub.dev/packages/grinder) パッケージを利用して専用コマンドを定義しています。
 
-こちらを利用することで、上記で登場したAPIキーやモデル指定などを一括で指定出来て便利になります。
+こちらを利用することで、上記で登場したAPIキーやモデル指定などを一括で指定出来ます。
+環境構築用コマンドなど、よく使うコマンド諸々も定義出来るためとても便利です。
 
-環境構築用のコマンドなど、よく使うコマンド諸々も定義出来るためとても便利です。
-
-以下、コード全体です：
-```dart: tools/grind.dart
+::: details `tools/grind.dart`
+```dart
 import 'dart:io';
 
 import 'package:grinder/grinder.dart';
@@ -254,11 +253,21 @@ void _runProcess(String executable, List<String> arguments) {
 }
 
 ```
+:::
+
+今回は、APIキーを `.secret` ファイルに記載して、以下のように取得しています。
+こういった処理は`Makefile`のような利用しても出来るとは思いますが、grindパッケージを利用すればDartで書けて少し複雑な処理やエラーハンドリングがしやすいという点が良いのかなと思っています。
+```dart
+    final envEntries = File('.secret').readAsLinesSync();
+    final apiKey = envEntries
+        .firstWhere((e) => e.startsWith('ARB_TRANSLATE_API_KEY='))
+        .split('=')[1];
+```
 
 ちなみに、APIキーを参照する設定ファイル自体は `.gitignore` に入れていますが、`.secret.example` のようなものをgit管理するようにすると、開発者個々人が手元で作る際に親切かなと思います。
 
 ```file: .secret.example
-# Check out the https://www.XXXXXX.com for the actual value
+# 実際の値はこちらを参照：https://www.XXXXXX.com
 ARB_TRANSLATE_API_KEY=YOUR_API_KEY
 ```
 
