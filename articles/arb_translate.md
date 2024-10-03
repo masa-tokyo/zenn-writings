@@ -3,7 +3,7 @@ title: "arb_translateパッケージでCLIからGemini APIを使ってみた"
 emoji: 🌎"   
 type: "tech"  
 topics: ["Flutter", "AI", "Gemini"]
-published: false
+published: true
 ---
 ## はじめに
 
@@ -43,7 +43,7 @@ https://github.com/masa-tokyo/arb_translate_sample
 
 ## 使い方
 
-では、ここから使い方を手順を追ってみていきます。
+では、ここから使い方を手順を追ってみていきましょう。
 
 ### 1. インストール
 
