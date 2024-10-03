@@ -203,8 +203,6 @@ setup() {
 /// Use this command after:
 /// - installing the package with [setup]
 /// - copying `.secret.example` and creating `.secret` file for the API key
-///
-/// To improve the quality of translation, update [_translateContext].
 @DefaultTask()
 translate() {
   try {
@@ -213,7 +211,7 @@ translate() {
             .firstWhere((e) => e.startsWith('ARB_TRANSLATE_API_KEY='))
             .split('=')[1];
 
-    // Context to improve translation quality.
+    // add context to improve translation quality
     const context = '''
 Japanese words should be translated into English directly.
 For example, おにぎり should be Onigiri.
