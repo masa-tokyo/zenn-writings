@@ -31,7 +31,7 @@ https://x.com/masaki_hideout/status/1841759256338710550
 
 https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization
 
-また、デフォルト言語ファイル(`L10n.yaml` の `template-arb-file` に指定されているもの）は日本語（`app_ja.arb`)になっていることとします。
+また、L10.yamlファイルの`template-arb-file`には翻訳元となる言語（今回は日本語)が設定されていることとします。
 
 L10.yamlファイルを用意しない場合の設定については、ドキュメントの以下の箇所をご覧ください：
 
