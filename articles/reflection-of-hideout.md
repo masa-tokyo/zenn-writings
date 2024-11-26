@@ -9,9 +9,9 @@ published: false
 
 少し昔の話になりますが、個人で作っていたHideOutというアプリをリリースしました。
 
-[‎HideOut: Learn w/ members](https://apps.apple.com/jp/app/hideout-learn-w-members/id1632561765?l=en-US)
+https://apps.apple.com/jp/app/hideout-learn-w-members/id1632561765?l=en-US
 
-[HideOut: Learn w/ members - Apps on Google Play](https://play.google.com/store/apps/details?id=com.masakisato.hideout)
+https://play.google.com/store/apps/details?id=com.masakisato.hideout
 
 自分なりに頑張って作ったこのアプリですが、現在はこんな感じで文字通り誰にも使われてません…
 
@@ -109,7 +109,7 @@ https://github.com/masa-tokyo/hide_out
 
 このHideOutを考えるに当たって影響を受けたものにcappucinoというアプリがあります。素敵なアプリなのでぜひ使ってみてください：
 
-[‎Cappuccino - stay in touch](https://apps.apple.com/jp/app/cappuccino-stay-in-touch/id1506849927?l=en-US)
+https://apps.apple.com/jp/app/cappuccino-stay-in-touch/id1506849927?l=en-US
 
 名前だけだとどんなものか分かりにくいのですが、これは親しい友人や家族間で音声を共有するためのアプリになります。そのため、誰か一人が知ればこのプラットフォーム上に知り合いを招待して利用される、というように自ずと広まる仕組みになっています。
 
@@ -168,7 +168,7 @@ HideOutにおいては、アプリがユーザーの目に触れてからの流�
 
 そこで、AirortというTestFlightを公開出来るプラットフォームに登録してベータ版を第三者にも使ってもらおうと試みました。
 
-[Airport](https://airport.community/)
+https://airport.community/
 
 パブリックにしたTestFlightのURLだけで登録出来るお手軽さもあって良いという話を耳にしたので使ってみたのですが、ほとんど使ってもらうことは出来ませんでした。今となってはこのサイト自体完全にクローズしているのですが、その当時からアップロードされるアプリ数がかなり減少傾向にあったのでこのプラットフォーム自体に既に集客力がほとんど無かったのかもしれません。
 
@@ -194,6 +194,6 @@ HideOutにおいては、アプリがユーザーの目に触れてからの流�
 
 iOS/Android にてリリースされているので、ぜひ使ってみてください🙌
 
-[](https://apps.apple.com/us/app/mygourmet/id6499088858)
+https://apps.apple.com/us/app/mygourmet/id6499088858
 
-[グルメ開拓アプリ: My Gourmet - Apps on Google Play](https://play.google.com/store/apps/details?id=com.blue_waltz.my_gourmet)
+https://play.google.com/store/apps/details?id=com.blue_waltz.my_gourmet
