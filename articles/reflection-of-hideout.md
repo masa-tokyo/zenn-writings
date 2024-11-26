@@ -3,7 +3,7 @@ title: "誰にも使われないアプリを作ってしまった話"
 emoji: "🌀"   
 type: "idea"  
 topics: ["個人開発", "Flutter"]
-published: false
+published: true
 ---
 ## はじめに
 
