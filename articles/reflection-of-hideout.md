@@ -15,11 +15,7 @@ https://play.google.com/store/apps/details?id=com.masakisato.hideout
 
 自分なりに頑張って作ったこのアプリですが、現在はこんな感じで文字通り誰にも使われてません…
 
-- [ ]  todo decide which to use
-
-![CleanShot 2024-08-30 at 17.18.39.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/53deb1d7-5a57-422f-ab9a-33d5c8198398/CleanShot_2024-08-30_at_17.18.39.png)
-
-![CleanShot 2024-11-24 at 22.22.25@2x.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/3e701c3b-46fe-4397-ba50-b0fde83fd954/CleanShot_2024-11-24_at_22.22.252x.png)
+![](https://storage.googleapis.com/zenn-user-upload/ca06784cb8dc-20241126.png)
 
 この記事では、このアプリ開発を通しての学びを今後の自分のためにも振り返ってみようと思います。
 
@@ -29,11 +25,9 @@ https://play.google.com/store/apps/details?id=com.masakisato.hideout
 
 まずは、HideOutがどんなアプリなのかを簡単にご紹介します。
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/9c7666b2-8bad-4bff-9aae-e6253e4a3013/image.png)
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/05500858-d2b0-4d65-9fef-e2f32ffca505/image.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc061dd-c854-46a2-81a6-048a1a0db43e/7bb45c55-b31a-43b8-b7e9-1afbdb3950d2/image.png)
+| ![](https://storage.googleapis.com/zenn-user-upload/0a4f5e0590b3-20241126.png) | ![](https://storage.googleapis.com/zenn-user-upload/9dc28a6a0918-20241126.png) | ![](https://storage.googleapis.com/zenn-user-upload/af5f5474c74f-20241126.png) |
+|:------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
 
 最大5人の少人数グループで音声の共有を行うことが出来るアプリです。
 
