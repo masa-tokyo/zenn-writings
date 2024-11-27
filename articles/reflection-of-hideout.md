@@ -180,6 +180,6 @@ https://airport.community/
 
 iOS/Android にてリリースされているので、ぜひ使ってみてください🙌
 
-https://apps.apple.com/us/app/mygourmet/id6499088858
+https://apps.apple.com/jp/app/mygourmet/id6499088858
 
 https://play.google.com/store/apps/details?id=com.blue_waltz.my_gourmet
