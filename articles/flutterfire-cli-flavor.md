@@ -7,7 +7,7 @@ published: true
 ---
 
 ## はじめに
-少し前の記事で Andrea さんのこちらの記事で、Flutterfire CLI を使って環境構築する、と言う記事が出ていたので試してみました。
+少し前に Andrea さんのこちらの記事で、Flutterfire CLI を使って環境構築する、と言う記事が出ていたので試してみました。
 
 https://codewithandrea.com/articles/flutter-firebase-multiple-flavors-flutterfire-cli/
 
@@ -17,8 +17,27 @@ https://zenn.dev/altiveinc/articles/separating-environments-in-flutter-old-editi
 
 ## それぞれの手順
 
-// TODO: try out
+まずは Flutter プロジェクトを作成しましょう。
 
+```shell
+flutter create flavor_sample_app -e
+```
+
+ちなみに、`-e` オプションをつけることでお馴染みのカウンターアプリよりもシンプルな空のプロジェクトが出来ます。
+
+`pubspec.yaml` に `flutter_flavorizr` を追加します：
+
+```yaml
+dev_dependencies:
+  flutter_flavorizr: ^2.2.3
+ ```
+
+前提として、iOS環境にはいかが必要になります：
+- [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
+- [Gem](https://rubygems.org/pages/download)
+- [Xcodeproj](https://github.com/CocoaPods/Xcodeproj)
+
+※ Flutterバージョン3.27.0以降でプロジェクトを作成している場合、iosディレクトリ配下に`Podfile`が作られないため、自身で用意しておきましょう。
 
 
 ## 感想
