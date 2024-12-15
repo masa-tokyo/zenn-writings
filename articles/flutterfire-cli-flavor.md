@@ -2,7 +2,7 @@
 title: "Flutterfire CLI で 環境分けをする"  
 emoji: "🔨"   
 type: "tech"  
-topics: ["Flutter", "AI", "Gemini"]
+topics: ["Flutter", "flavor", "cli"]
 published: false
 ---
 
