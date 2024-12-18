@@ -114,20 +114,41 @@ flavorに関わらず `main.dart`ファイル一つで簡潔に管理したい�
 :::
 
 ### アイコン設定
-上記までを行えば一通り環境最低限の設定アイコンを環境ごとに切り替えたい場合のみ
+上記までを行えば一通り環境分けが完了しますが、例えば以下のように環境ごとに異なるアイコンを設定することが可能です：
 
 |                                         本番環境                                         |                                         開発環境                                         |
 |:------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------:|
 | ![](https://storage.googleapis.com/zenn-user-upload/c56a0423ec43-20241218.png =200x) | ![](https://storage.googleapis.com/zenn-user-upload/ecac23f49b5f-20241218.png =200x) |
 
-以下のように画像を`assets`ディレクトリ内に格納します。
 
-
-以下のようにそのパスを`flavorizr.yaml`に記載します。
+それぞれのプラットフォーム向けに作成した画像を`assets`ディレクトリ内に格納し、そのパスを`flavorizr.yaml`に記載します。
 
 ```yaml
-
-```
+flavors:
+  dev:
+    app:
+      name: "Flavor Sample App Dev"
+    android:
+      applicationId: "com.example.flavor_sample_app.dev"
++     icon: "assets/android_app_icon_dev.png"
++     adaptiveIcon:
++       foreground: "assets/android_app_icon_foreground_dev.png"
++       background: "assets/android_app_icon_background.png"
+  ios:
+    bundleId: "com.example.flavor_sample_app.dev"
++     icon: "assets/ios_app_icon_dev.png"
+  prod:
+    app:
+      name: "Flavor Sample App"
+    android:
+      applicationId: "com.example.flavor_sample_app"
++     icon: "assets/android_app_icon.png"
++     adaptiveIcon:
++       foreground: "assets/android_app_icon_foreground.png"
++       background: "assets/android_app_icon_background.png"
+  ios:
+    bundleId: "com.example.flavor_sample_app"
++     icon: "assets/ios_app_icon.png"
 
 Android用アイコンを反映させるために以下のコマンドを実行します：
 ```shell
