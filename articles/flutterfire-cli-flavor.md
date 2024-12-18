@@ -93,7 +93,8 @@ dart run flutter_flavorizr -p ide:config
 ```
 
 実際にビルドしてみると、以下のようにflavorごとのアプリがビルドされます：
-|![](https://storage.googleapis.com/zenn-user-upload/16761a8eed47-20241218.png =300x)|![](https://storage.googleapis.com/zenn-user-upload/995470d8a4be-20241218.png =300x)|
+|本番環境|開発環境|
+|![](https://storage.googleapis.com/zenn-user-upload/9cc92e8e1222-20241218.png =300x)|![](https://storage.googleapis.com/zenn-user-upload/bc73a758bce8-20241218.png =300x)|
 |:------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
 
 
@@ -107,14 +108,18 @@ flavorに関わらず `main.dart`ファイル一つで簡潔に管理したい�
 
 という理由から、今回はエントリーポイントを環境ごとに分けた運用にしています。
 
-`main.dart`のみで管理したい場合、 生成された`*.xcconfig`ファイル内の`FLUTTER_TARGET`のフィールドを取り除く or `main.dart`へ変更することで可能となります。
+`main.dart`のみで管理したい場合、 生成された`*.xcconfig`ファイル内の`FLUTTER_TARGET`のフィールドを取り除く or `main.dart`へ変更することで可能のようです。
 また、`dart run flutter_flavorizr`コマンド実行時の`main._*.dart`の生成が不要であれば、`-p`オプションにより[こちらのデフォルトの引数](https://pub.dev/packages/flutter_flavorizr#default-processors-set)から`flutter:*`を取り除いて実行するのが良いかと思います。
 
 :::
 
 ### アイコン設定
+上記までを行えば一通り環境最低限の設定アイコンを環境ごとに切り替えたい場合のみ
 
-上記のみで最低限の設定アイコンを環境ごとに切り替えたい場合のみ）
+|本番環境|開発環境|
+|![](https://storage.googleapis.com/zenn-user-upload/c56a0423ec43-20241218.png =200x)|![](https://storage.googleapis.com/zenn-user-upload/ecac23f49b5f-20241218.png =200x)|
+|:------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
+
 
 以下のように画像を`assets`ディレクトリ内に格納します。
 
@@ -130,10 +135,14 @@ Android用アイコンを反映させるために以下のコマンドを実行�
 dart run flutter_flavorizr -p android:icons
 ```
 
-iOS用アイコンを反映させるために以下のコマンドを実行します：
+すると、初回のコマンドで生成されていたダミーのアイコン画像からの置き換えやアダプティブアイコン用の画像をよしなに生成してくれます：
+![](https://storage.googleapis.com/zenn-user-upload/d34f5201bad0-20241218.png)
+
+iOS側も同様に以下のコマンドを実行します：
 ```shell
 dart run flutter_flavorizr -p ios:icons
 ```
+
 
 ## 感想
 
