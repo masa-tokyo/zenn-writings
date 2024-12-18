@@ -77,16 +77,19 @@ dart run flutter_flavorizr
 利用しているIDEを`flavorizr.yaml`へ以下のように設定します。
 
 VS Codeを利用している場合：
-```yaml
-+ide: "idea"
+```diff yaml
++ide: "vscode"
 flavors:
   dev:
 # ...
 ```
 
 Android StudioやIntelliJ IDEAを利用している場合：
-```yaml
-ide: "idea"
+```diff yaml
++ide: "idea"
+flavors:
+  dev:
+# ...
 ```
 
 設定後、以下のコマンドを実行します：
