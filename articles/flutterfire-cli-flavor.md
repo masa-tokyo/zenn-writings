@@ -78,7 +78,10 @@ dart run flutter_flavorizr
 
 VS Codeを利用している場合：
 ```yaml
-ide: "vscode"
++ide: "idea"
+flavors:
+  dev:
+# ...
 ```
 
 Android StudioやIntelliJ IDEAを利用している場合：
@@ -123,32 +126,8 @@ flavorに関わらず `main.dart`ファイル一つで簡潔に管理したい�
 
 それぞれのプラットフォーム向けに作成した画像を`assets`ディレクトリ内に格納し、そのパスを`flavorizr.yaml`に記載します。
 
-```
-flavors:
-  dev:
-    app:
-      name: "Flavor Sample App Dev"
-    android:
-      applicationId: "com.example.flavor_sample_app.dev"
-+     icon: "assets/android_app_icon_dev.png"
-+     adaptiveIcon:
-+       foreground: "assets/android_app_icon_foreground_dev.png"
-+       background: "assets/android_app_icon_background.png"
-  ios:
-    bundleId: "com.example.flavor_sample_app.dev"
-+     icon: "assets/ios_app_icon_dev.png"
-  prod:
-    app:
-      name: "Flavor Sample App"
-    android:
-      applicationId: "com.example.flavor_sample_app"
-+     icon: "assets/android_app_icon.png"
-+     adaptiveIcon:
-+       foreground: "assets/android_app_icon_foreground.png"
-+       background: "assets/android_app_icon_background.png"
-  ios:
-    bundleId: "com.example.flavor_sample_app"
-+     icon: "assets/ios_app_icon.png"
+```yaml
+
 ```
 
 Android用アイコンを反映させるために以下のコマンドを実行します：
