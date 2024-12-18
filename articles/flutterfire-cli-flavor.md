@@ -123,7 +123,7 @@ flavorに関わらず `main.dart`ファイル一つで簡潔に管理したい�
 
 それぞれのプラットフォーム向けに作成した画像を`assets`ディレクトリ内に格納し、そのパスを`flavorizr.yaml`に記載します。
 
-```yaml
+```
 flavors:
   dev:
     app:
@@ -149,6 +149,7 @@ flavors:
   ios:
     bundleId: "com.example.flavor_sample_app"
 +     icon: "assets/ios_app_icon.png"
+```
 
 Android用アイコンを反映させるために以下のコマンドを実行します：
 ```shell
