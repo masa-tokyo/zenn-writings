@@ -36,10 +36,8 @@ iOSのターゲットバージョンは12.0以上である必要があるよう�
 まずは Flutter プロジェクトを作成しましょう。
 
 ```shell
-flutter create flavor_sample_app -e
+flutter create flavor_sample_app --empty
 ```
-
-ちなみに、`-e` オプションをつけることでお馴染みのカウンターアプリよりもシンプルな空のプロジェクトが出来ます。
 
 `pubspec.yaml` に `flutter_flavorizr` を追加します：
 
@@ -94,8 +92,10 @@ ide: "idea"
 dart run flutter_flavorizr -p ide:config
 ```
 
-実際にビルドしてみると、以下のようにflavorごとの文字列が表示されたアプリがビルドされます：
-![](https://storage.googleapis.com/zenn-user-upload/995470d8a4be-20241218.png =300x)
+実際にビルドしてみると、以下のようにflavorごとのアプリがビルドされます：
+|![](https://storage.googleapis.com/zenn-user-upload/16761a8eed47-20241218.png =300x)|![](https://storage.googleapis.com/zenn-user-upload/995470d8a4be-20241218.png =300x)|
+|:------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|
+
 
 :::message
 エントリーポイントについて
@@ -113,7 +113,8 @@ flavorに関わらず `main.dart`ファイル一つで簡潔に管理したい�
 :::
 
 ### アイコン設定
-（アイコンを環境ごとに切り替えたい場合のみ）
+
+上記のみで最低限の設定アイコンを環境ごとに切り替えたい場合のみ）
 
 以下のように画像を`assets`ディレクトリ内に格納します。
 
