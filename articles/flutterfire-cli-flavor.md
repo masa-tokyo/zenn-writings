@@ -3,7 +3,7 @@ title: "Flutterfire CLI で Flutter x Firebase の環境分けをする"
 emoji: "🔨"
 type: "tech"
 topics: ["Flutter", "flavor", "Firebase", "cli"]
-published: false
+published: true
 ---
 
 ## はじめに
