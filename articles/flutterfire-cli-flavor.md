@@ -248,8 +248,7 @@ flutterfire config \
   Target        
 ```
 
-::: details
-ここでエラーが出てしまったら...
+::: details  ここでエラーが出てしまったら...
 
 ```shell
 Exception: /Users/masaki/.rbenv/versions/3.2.2/lib/ruby/site_ruby/3.2.0/rubygems/specification.rb:2242:in `check_version_conflict': can't activate rexml-3.2.8, already activated rexml-3.4.0 (Gem::LoadError)
