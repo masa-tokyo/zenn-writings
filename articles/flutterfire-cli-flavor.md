@@ -1,23 +1,27 @@
 ---
-title: "Flutterfire CLI で 環境分けをする"  
+title: "Flutterfire CLI で Flutter x Firebase の環境分けをする"  
 emoji: "🔨"   
 type: "tech"  
-topics: ["Flutter", "flavor", "cli"]
+topics: ["Flutter", "flavor", "Firebase", "cli"]
 published: false
 ---
 
 ## はじめに
-少し前に Andrea さんのこちらの記事で、Flutterfire CLI を使って環境構築する、と言う記事が出ていたので試してみました。
+
+皆さんは普段のFlutter開発において、どのように開発環境を分けていますか？
+特に、Firebaseを利用しているプロジェクトにおいてはプラットフォームごとの設定ファイルの扱いもあり少し手間かと思います。
+今回は、Flutterfire CLI を使った以下の記事の方法がとても良かったのでご紹介します。
 
 https://codewithandrea.com/articles/flutter-firebase-multiple-flavors-flutterfire-cli/
 
-これまでは、以下記事の村松さんのものがとてもお手軽で使わせてもらっていたのですが、`--flavor`を使ったことが無く、知見を広げる意味でも試してみました。
-
-https://zenn.dev/altiveinc/articles/separating-environments-in-flutter-old-edition
 
 ## flutter_flavorizr 導入
 
-// TODO explain about flutter_flavorizr
+`Flutterfire CLI`を使った環境分けには、`flutter run --flavor dev`のようにflavorオプションによるアプリビルドが必要になります。
+
+https://pub.dev/packages/flutter_flavorizr
+
+`flutter_flavorizr`というパッケージを利用することで、この設定をとてもスムーズに行うことが出来ます。
 
 ### 前提
 
@@ -65,15 +69,38 @@ flavors:
 
 ここでは、`dev` と `prod` の2つの環境を用意しています(`stg`環境も必要な場合は`dev`同様に追加してください）。
 
-以下のコマンドを実行することで、諸々の設定を一括して行なってくれます：
+以下のコマンドを実行することで、諸々の設定を全て一括で行なってくれます：
 ```shell
 dart run flutter_flavorizr
 ```
 
 ## ビルド引数設定
-// todo explain more about `flutter run --flavor dev`
 
-利用しているIDEを`flavorizr.yaml`へ以下のように設定します。
+上記の実行だけで、以下コマンドのように環境ごとのアプリがビルド出来るようになります：
+
+```shell
+flutter run --flavor dev -t lib/main_dev.dart
+flutter run --flavor prod -t lib/main_prod.dart
+```
+
+実際にビルドしてみると、以下のようにflavorごとのアプリがビルドされます：
+|                                         本番環境                                         |                                         開発環境                                         |
+|:------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------:|
+|![](https://storage.googleapis.com/zenn-user-upload/9cc92e8e1222-20241218.png =300x)|![](https://storage.googleapis.com/zenn-user-upload/bc73a758bce8-20241218.png =300x)|
+
+
+:::message
+エントリーポイントについて
+
+flutter_flavorizr のデフォルトの設定に則り、今回は`main._*.dart`のように環境ごとにエントリーポイントを分けています。
+
+`main.dart`のみで管理したい場合、 生成された`*.xcconfig`ファイル内の`FLUTTER_TARGET`のフィールドを取り除く or `main.dart`へ変更することで可能のようです。
+また、`dart run flutter_flavorizr`コマンド実行時の`main._*.dart`等の生成を避けたければ、`dart run flutter_flavorizr`の一括実行の代わりに`-p`オプションを利用することで回避可能です。
+[こちらにあるデフォルトの引数](https://pub.dev/packages/flutter_flavorizr#default-processors-set)から`flutter:*`を取り除いて実行するのが良いかと思います。
+
+:::
+
+尚、`flutter run --flavor dev -t lib/main_dev.dart`のようなビルド引数を、`flavorizr.yaml`からIDEへ設定することが出来ます。
 
 VS Codeを利用している場合：
 ```yaml
@@ -91,35 +118,15 @@ flavors:
 # ...
 ```
 
-設定後、以下のコマンドを実行します：
+上記のように記載後、以下のコマンドを実行します：
 
 ```shell
 dart run flutter_flavorizr -p ide:config
 ```
 
-実際にビルドしてみると、以下のようにflavorごとのアプリがビルドされます：
-|                                         本番環境                                         |                                         開発環境                                         |
-|:------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------:|
-|![](https://storage.googleapis.com/zenn-user-upload/9cc92e8e1222-20241218.png =300x)|![](https://storage.googleapis.com/zenn-user-upload/bc73a758bce8-20241218.png =300x)|
-
-
-:::message
-エントリーポイントについて
-
-flavorに関わらず `main.dart`ファイル一つで簡潔に管理したいという方も多いかと思うのですが、
-
-- セキュリティ的により安全（`dev`用の FirebaseOptions ファイルをアプリ配布時に含める必要が無くなる。詳細は[こちら](https://codewithandrea.com/articles/flutter-firebase-multiple-flavors-flutterfire-cli/#all-the-firebase-config-files-are-bundled-no-tree-shaking)）
-- flutter_flavorizr が複数の`main._*.dart`等を自動生成してくれるため、手間が少なく済む
-
-という理由から、今回はエントリーポイントを環境ごとに分けた運用にしています。
-
-`main.dart`のみで管理したい場合、 生成された`*.xcconfig`ファイル内の`FLUTTER_TARGET`のフィールドを取り除く or `main.dart`へ変更することで可能のようです。
-また、`dart run flutter_flavorizr`コマンド実行時の`main._*.dart`の生成が不要であれば、`-p`オプションにより[こちらのデフォルトの引数](https://pub.dev/packages/flutter_flavorizr#default-processors-set)から`flutter:*`を取り除いて実行するのが良いかと思います。
-
-:::
 
 ### アイコン設定
-上記までを行えば一通り環境分けが完了しますが、例えば以下のように環境ごとに異なるアイコンを設定することが可能です：
+ここまでを行えば一通りの環境分けは完了ですが、例えば以下のように環境ごとにアイコンを設定することも可能です。
 
 |                                         本番環境                                         |                                         開発環境                                         |
 |:------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------:|
@@ -163,7 +170,7 @@ Android用アイコンを反映させるために以下のコマンドを実行�
 dart run flutter_flavorizr -p android:icons
 ```
 
-すると、各サイズの画像生成や最初に実行したコマンドで生成されていたダミーのアイコン画像からの置き換えをよしなにしてくれます：
+すると、各サイズの画像生成や`dart run flutter_flavorizr`で生成されていたダミーのアイコン画像からの置き換えをよしなにしてくれます：
 ![](https://storage.googleapis.com/zenn-user-upload/d34f5201bad0-20241218.png)
 
 iOS側も同様に以下のコマンドを実行します：
@@ -381,8 +388,10 @@ void runMainApp(FirebaseOptions firebaseOptions) async {
 
 ## 終わりに
 
+お疲れ様でした！
+色々とプラットフォームごとのファイルをいじる必要がなく、とてもシンプルに環境構築が出来たかと思います。
+修正箇所等ありましたら、コメントでお知らせいただけますと幸いです🙌
 
-相当手間が少なくて済むため良いのかなと思っています。
-
-# 参考
-// TODO: add references
+## 参考記事
+https://codewithandrea.com/articles/flutter-firebase-multiple-flavors-flutterfire-cli/
+https://zenn.dev/ymgn____/articles/f087e2fac830a8
