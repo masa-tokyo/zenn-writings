@@ -180,7 +180,7 @@ https://console.firebase.google.com/
 上記のページから、環境ごとの Firebase プロジェクトを作成します：
 ![](https://storage.googleapis.com/zenn-user-upload/7692578ca4ee-20241219.png)
 
-## FlutterFire CLI 実行
+## FlutterFire CLI 導入
 
 ### インストール
 
