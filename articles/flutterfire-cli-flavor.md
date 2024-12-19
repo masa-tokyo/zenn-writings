@@ -178,8 +178,86 @@ dart run flutter_flavorizr -p ios:icons
 
 https://console.firebase.google.com/
 
-上記から環境ごとのFirebaseプロジェクトを作成します：
+上記のページから、環境ごとのFirebaseプロジェクトを作成します：
 ![](https://storage.googleapis.com/zenn-user-upload/7692578ca4ee-20241219.png)
+
+## FlutterFire CLI 実行
+
+### インストール
+
+Firebaseの環境設定には iOS用の`GoogleService-Info.plist`やAndroid用の`google-services.json`が必要になります。
+
+これらのファイルは各環境のFirebaseプロジェクトごとにコンソールからダウンロードする必要がありますが、FlutterFire CLIを利用することでこの手順を簡略化することが出来ます。
+
+まずは、前段階として`firebase --version`コマンドでバージョンが表示されない場合、Firebase CLIをインストールします：
+
+```shell
+npm install -g firebase-tools
+```
+
+以下のコマンドでFirebaseプロジェクトを作成したアカウントへログインします：
+```shell
+firebase login
+```
+
+以下コマンドでFlutterFireCLI(`1.0.0`以上が必要)をインストールします：
+```shell
+dart pub global activate flutterfire_cli
+```
+
+※ 過去にインストール済みの場合でも、依存関係が原因で再実行が必要な場合があります
+
+### コマンド実行
+
+各環境ごとに以下コマンドを実行します。
+
+dev環境の場合：
+```shell
+flutterfire config \
+  --project=flavor-sample-app-dev \
+  --out=lib/firebase_options_dev.dart \
+  --ios-bundle-id=com.example.flavorSampleApp.dev \
+  --ios-out=ios/flavors/dev/GoogleService-Info.plist \
+  --android-package-name=com.codewithandrea.flavor_sample_app.dev \
+  --android-out=android/app/src/dev/google-services.json
+```
+
+prod環境の場合：
+```shell
+flutterfire config \
+  --project=flavor-sample-app-prod \
+  --out=lib/firebase_options_prod.dart \
+  --ios-bundle-id=com.example.flavorSampleApp \
+  --ios-out=ios/flavors/prod/GoogleService-Info.plist \
+  --android-package-name=com.codewithandrea.flavor_sample_app \
+  --android-out=android/app/src/prod/google-services.json
+```
+
+- ` --project`は、自身のFirebaseプロジェクトIDを指定します
+- `--ios-bundle-id`は、iOSのバンドルIDを指定します
+- `--android-package-name`は、AndroidのApplicationIdを指定します
+
+### プロンプト回答
+
+実際にコマンドを実行すると、プロンプトが表示されるので、それに沿って回答していきます。
+
+「Build configuration」を選択します：
+```shell
+? You have to choose a configuration type. Either build configuration (most likely choice) or a target set up. ›                                                                                         
+❯ Build configuration                                                                                                                                                                                    
+  Target        
+```
+
+## アプリビルド
+
+パッケージ追加
+
+### Android
+
+### iOS
+
+### エントリーポイント
+
 
 
 ## 感想
@@ -187,7 +265,8 @@ https://console.firebase.google.com/
 // TODO: comment after actually trying it out
 実際にやってみて、
 pros
-- 開発環境もリリースモードで作れる
+- 開発環境もリリースモードで作れる?
+- dart-from-file不要で済む
 
 cons
 - 割と手間？
