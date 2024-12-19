@@ -74,6 +74,8 @@ dart run flutter_flavorizr
 ```
 
 ## ビルド引数設定
+// todo explain more about `flutter run --flavor dev`
+
 利用しているIDEを`flavorizr.yaml`へ以下のように設定します。
 
 VS Codeを利用している場合：
@@ -152,7 +154,7 @@ flavors:
 +     icon: "assets/android_app_icon.png"
 +     adaptiveIcon:
 +      foreground: "assets/android_app_icon_foreground.png"
-+       background: "assets/android_app_icon_background.png"
++      background: "assets/android_app_icon_background.png"
     ios:
       bundleId: "com.example.flavor_sample_app"
 +     icon: "assets/ios_app_icon.png"
@@ -164,13 +166,20 @@ Android用アイコンを反映させるために以下のコマンドを実行�
 dart run flutter_flavorizr -p android:icons
 ```
 
-すると、初回のコマンドで生成されていたダミーのアイコン画像からの置き換えやアダプティブアイコン用の画像をよしなに生成してくれます：
+すると、各サイズの画像生成や最初に実行したコマンドで生成されていたダミーのアイコン画像からの置き換えをよしなにしてくれます：
 ![](https://storage.googleapis.com/zenn-user-upload/d34f5201bad0-20241218.png)
 
 iOS側も同様に以下のコマンドを実行します：
 ```shell
 dart run flutter_flavorizr -p ios:icons
 ```
+
+## Firebaseプロジェクトの準備
+
+https://console.firebase.google.com/
+
+上記から環境ごとのFirebaseプロジェクトを作成します：
+![](https://storage.googleapis.com/zenn-user-upload/7692578ca4ee-20241219.png)
 
 
 ## 感想
