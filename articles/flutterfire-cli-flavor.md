@@ -248,6 +248,25 @@ flutterfire config \
   Target        
 ```
 
+::: details
+ここでエラーが出てしまったら...
+
+```shell
+Exception: /Users/masaki/.rbenv/versions/3.2.2/lib/ruby/site_ruby/3.2.0/rubygems/specification.rb:2242:in `check_version_conflict': can't activate rexml-3.2.8, already activated rexml-3.4.0 (Gem::LoadError)
+```
+上記のようなエラーが出てしまった場合、gemによりインストールされた`xcodeproj`と`rexml`のバージョンが競合している可能性があります。
+
+```shell
+gem list rexml
+```
+によりインストール済みの`rexml`を確認し、`xcodeproj --version`と互換性の無いものを以下のように削除しましょう：
+
+```shell
+gem uninstall rexml --version 3.2.8
+```
+
+:::
+
 ## アプリビルド
 
 パッケージ追加
