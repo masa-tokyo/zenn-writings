@@ -8,9 +8,9 @@ published: false
 
 ## はじめに
 
-皆さんは普段のFlutter開発において、どのように開発環境を分けていますか？
+皆さんは普段のFlutter開発において、どのように環境分けをしていますか？
 特に、Firebaseを利用しているプロジェクトにおいてはプラットフォームごとの設定ファイルの扱いもあり少し手間かと思います。
-今回は、Flutterfire CLI を使った以下の記事の方法がとても良かったのでご紹介します。
+今回は、Flutterfire CLI を使った以下の記事のような方法がとても良いと思ったのでご紹介します。
 
 https://codewithandrea.com/articles/flutter-firebase-multiple-flavors-flutterfire-cli/
 
