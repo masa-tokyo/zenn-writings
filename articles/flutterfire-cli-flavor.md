@@ -307,7 +307,8 @@ iOSプラットフォームバージョンは`13.0`以上にする必要があ�
 platform :ios, '13.0'
 ```
 
-:::message Podfileについて
+:::message 
+Podfileについて
 Flutterバージョン3.27以降の場合、プロジェクト作成時点ではPodfileはありませんが、上記の`flutter pub add firebase_core`時点で追加されます。
 これに際して、Podfile内のRunnerについての記載箇所にflavorを反映させて以下のようにしておくと良いかと思います：
 
@@ -363,7 +364,7 @@ void main() async {
 }
 ```
 
-そして、`main.dart`にて受け取ったFirebaseOptionsを用いて実際のFirebase初期化処理を実行出来るようにします：
+そして、`main.dart`ではFirebaseOptionsを受け取ってFirebaseの初期化処理を実行出来るようにします：
 
 ```file: main.dart
 import 'package:firebase_core/firebase_core.dart';
