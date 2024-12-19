@@ -28,9 +28,6 @@ iOS環境構築には以下が必要になります：
 - [Gem](https://rubygems.org/pages/download)
 - [Xcodeproj](https://github.com/CocoaPods/Xcodeproj) (gem経由でのインストールが必要)
 
-iOSのターゲットバージョンは12.0以上である必要があるようです（詳細は[こちら](https://github.com/AngeloAvv/flutter_flavorizr/blob/master/doc/troubleshooting/unable-to-load-contents-of-file-list/README.md#:~:text=Before%20running%20pod%20install%20again%2C%20we%20need%20to%20make%20sure%20that%20the%20XCode%20Workspace%20is%20targeting%20at%20least%20iOS%2012.0))。
-※ [pub.dev上の記載](https://pub.dev/packages/flutter_flavorizr#prerequisites:~:text=If%20your%20app%20uses%20a%20Flutter%20plugin%20and%20you%20plan%20to%20create%20flavors%20for%20iOS%20and%20macOS%2C%20you%20need%20to%20make%20sure%20there%27s%20an%20existing%20Podfile%20file%20under%20the%20ios/macos%20folder.)では iosディレクトリ配下に`Podfile`が必要とありますが、今回の実行環境であるFlutter 3.27.0（flutter create時に`Podfile`は作成されないが`iOS Deployment Target`が12.0に設定されている）では不要です。
-
 ### 初期設定
 
 まずは Flutter プロジェクトを作成しましょう。
@@ -56,17 +53,17 @@ flavors:
     android:
       applicationId: "com.example.flavor_sample_app.dev"
     ios:
-      bundleId: "com.example.flavor_sample_app.dev"
+      bundleId: "com.example.flavorSampleApp.dev"
   prod:
     app:
       name: "Flavor Sample App"
     android:
       applicationId: "com.example.flavor_sample_app"
     ios:
-      bundleId: "com.example.flavor_sample_app"
+      bundleId: "com.example.flavorSampleApp"
 ```
 
-ここでは、`dev` と `prod` の2つの環境を用意しています。
+ここでは、`dev` と `prod` の2つの環境を用意しています(`stg`環境も必要な場合は`dev`同様に追加してください）。
 
 以下のコマンドを実行することで、諸々の設定を一括して行なってくれます：
 ```shell
@@ -144,7 +141,7 @@ flavors:
 +       foreground: "assets/android_app_icon_foreground_dev.png"
 +       background: "assets/android_app_icon_background.png"
     ios:
-      bundleId: "com.example.flavor_sample_app.dev"
+      bundleId: "com.example.flavorSampleApp.dev"
 +     icon: "assets/ios_app_icon_dev.png"
   prod:
     app:
@@ -156,7 +153,7 @@ flavors:
 +      foreground: "assets/android_app_icon_foreground.png"
 +      background: "assets/android_app_icon_background.png"
     ios:
-      bundleId: "com.example.flavor_sample_app"
+      bundleId: "com.example.flavorSampleApp"
 +     icon: "assets/ios_app_icon.png"
 
 ```
@@ -209,7 +206,7 @@ dart pub global activate flutterfire_cli
 
 ### コマンド実行
 
-各環境ごとに以下コマンドを実行します。
+実際に各環境ごとに以下コマンドを実行していきます。
 
 dev環境の場合：
 ```shell
@@ -218,7 +215,7 @@ flutterfire config \
   --out=lib/firebase_options_dev.dart \
   --ios-bundle-id=com.example.flavorSampleApp.dev \
   --ios-out=ios/flavors/dev/GoogleService-Info.plist \
-  --android-package-name=com.codewithandrea.flavor_sample_app.dev \
+  --android-package-name=com.example.flavor_sample_app.dev \
   --android-out=android/app/src/dev/google-services.json
 ```
 
@@ -229,7 +226,7 @@ flutterfire config \
   --out=lib/firebase_options_prod.dart \
   --ios-bundle-id=com.example.flavorSampleApp \
   --ios-out=ios/flavors/prod/GoogleService-Info.plist \
-  --android-package-name=com.codewithandrea.flavor_sample_app \
+  --android-package-name=com.example.flavor_sample_app \
   --android-out=android/app/src/prod/google-services.json
 ```
 
@@ -237,11 +234,10 @@ flutterfire config \
 - `--ios-bundle-id`は、iOSのバンドルIDを指定します
 - `--android-package-name`は、AndroidのApplicationIdを指定します
 
-### プロンプト回答
 
 実際にコマンドを実行すると、プロンプトが表示されるので、それに沿って回答していきます。
 
-「Build configuration」を選択します：
+`Build configuration`を選択します：
 ```shell
 ? You have to choose a configuration type. Either build configuration (most likely choice) or a target set up. ›                                                                                         
 ❯ Build configuration                                                                                                                                                                                    
@@ -266,36 +262,126 @@ gem uninstall rexml --version 3.2.8
 
 :::
 
-## アプリビルド
+`dev`環境の場合は`Debug-dev`、`prod`環境の場合は`Debug-prod`を選択します：
+```shell
+? Please choose one of the following build configurations ›                                                                                                                                              
+  Debug                                                                                                                                                                                                  
+  Release                                                                                                                                                                                                
+  Profile                                                                                                                                                                                                
+❯ Debug-dev                                                                                                                                                                                              
+  Profile-dev                                                                                                                                                                                            
+  Release-dev                                                                                                                                                                                            
+  Debug-prod                                                                                                                                                                                             
+  Profile-prod                                                                                                                                                                                           
+  Release-prod        
+```
 
-パッケージ追加
+設定したいプラットフォームを選択します：
+```shell
+? Which platforms should your configuration support (use arrow keys & space to select)? ›                                                                                                                
+✔ android                                                                                                                                                                                                
+✔ ios                                                                                                                                                                                                    
+  macos                                                                                                                                                                                                  
+✔ web                                                                                                                                                                                                    
+  windows      
+```
 
-### Android
+処理が完了すると以下のように、プロジェクト上にアプリが作成されています：
+![](https://storage.googleapis.com/zenn-user-upload/6960cda656be-20241220.png)
 
-### iOS
-
-### エントリーポイント
-
-
-
-## 感想
-
-// TODO: comment after actually trying it out
-実際にやってみて、
-pros
-- 開発環境もリリースモードで作れる?
-- dart-from-file不要で済む
-
-cons
-- 割と手間？
-
-## 代替案
-// TODO: alternative solution if any
-二つを組み合わせて以下のようにするのが良いかもしれません
+また、コマンド上で指定したアウトプット先に`firebase_options.dart`、`GoogleService-Info.plist`、`google-services.json`が作成されています。
 
 
-# 終わりに
+## firebase_coreパッケージ導入
 
+ここからは、実際にアプリをビルドするための準備をしていきます。
+`firebase_core`パッケージをインストールします：
+
+```shell
+flutter pub add firebase_core
+```
+
+iOSプラットフォームバージョンは`13.0`以上にする必要があるため、`ios/Podfile`にて以下のように設定します：
+```Podfile
+# Uncomment this line to define a global platform for your project
+platform :ios, '13.0'
+```
+
+:::message Podfileについて
+Flutterバージョン3.27以降の場合、プロジェクト作成時点ではPodfileはありませんが、上記の`flutter pub add firebase_core`時点で追加されます。
+これに際して、Podfile内のRunnerについての記載箇所にflavorを反映させて以下のようにしておくと良いかと思います：
+
+```diff Podfile
+project 'Runner', {
+-  'Debug' => :debug,
+-  'Profile' => :release,
+-  'Release' => :release,
++  'Debug-dev' => :debug,
++  'Profile-dev' => :release,
++  'Release-dev' => :release,
++  'Debug-prod' => :debug,
++  'Profile-prod' => :release,
++  'Release-prod' => :release,
+}
+```
+※`dart run flutter_flavorizr -p ios:podfile`実行でも反映されます
+
+:::
+
+### Firebase初期化
+
+実際にDartファイル内でFirebaseを初期化しましょう。
+今回はエントリーポイントを環境ごとに用意しているため、以下のコマンドでビルド出来るように設定します：
+```shell
+flutter run --flavor dev -t lib/main_dev.dart
+flutter run --flavor prod -t lib/main_prod.dart
+```
+
+エントリーポイントとなる`main._*.dart`ファイルにて、FirebaseOptionsをimportします：
+    
+```file: main_dev.dart
+import 'package:flavor_sample_app/firebase_options_dev.dart';
+
+import 'flavors.dart';
+import 'main.dart';
+
+void main() async {
+  F.appFlavor = Flavor.dev;
+  runMainApp(DefaultFirebaseOptions.currentPlatform);
+}
+```
+
+```file: main_prod.dart
+import 'package:flavor_sample_app/firebase_options_prod.dart';
+
+import 'flavors.dart';
+import 'main.dart';
+
+void main() async {
+  F.appFlavor = Flavor.prod;
+  runMainApp(DefaultFirebaseOptions.currentPlatform);
+}
+```
+
+そして、`main.dart`にて受け取ったFirebaseOptionsを用いて実際のFirebase初期化処理を実行出来るようにします：
+
+```file: main.dart
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+
+import 'app.dart';
+
+void runMainApp(FirebaseOptions firebaseOptions) async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: firebaseOptions);
+  runApp(const App());
+}
+```
+
+## 終わりに
+
+
+相当手間が少なくて済むため良いのかなと思っています。
 
 # 参考
 // TODO: add references
